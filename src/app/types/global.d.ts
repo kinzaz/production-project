@@ -15,3 +15,5 @@ declare module "*.svg" {
 declare module "*.jpg";
 declare module "*.jped";
 declare module "*.png";
+
+declare const __IS_DEV__: boolean;

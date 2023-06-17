@@ -2,6 +2,7 @@ import { DetailedHTMLProps, HTMLAttributes, useState } from "react";
 import styles from "./Sidebar.module.scss";
 import { classNames } from "shared/lib/classNames/classNames";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { LangSwitcher } from "widgets/LangSwitcher";
 
 type SidebarProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -24,7 +25,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <button onClick={onToggle}>toggle</button>
       <div className={styles.switchers}>
         <ThemeSwitcher />
-        {/* LangSwitcher */}
+        <LangSwitcher className={styles.lang} />
       </div>
     </div>
   );
