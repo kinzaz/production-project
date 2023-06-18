@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: [
     'eslint:recommended',
@@ -28,11 +29,11 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'i18next'],
   rules: {
-    'linebreak-style': ['error', 'windows'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'linebreak-style': 'off',
   },
 };
