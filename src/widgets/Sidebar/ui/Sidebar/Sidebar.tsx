@@ -1,8 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes, useState } from "react";
-import styles from "./Sidebar.module.scss";
-import { classNames } from "shared/lib/classNames/classNames";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
-import { LangSwitcher } from "widgets/LangSwitcher";
+import { DetailedHTMLProps, HTMLAttributes, useState } from 'react';
+import styles from './Sidebar.module.scss';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LangSwitcher } from 'widgets/LangSwitcher';
 
 type SidebarProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
