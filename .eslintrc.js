@@ -7,6 +7,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:i18next/recommended',
     'prettier',
   ],
   overrides: [
@@ -25,12 +26,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'i18next'],
   rules: {
     'linebreak-style': ['error', 'windows'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
+    'i18next/no-literal-string': ['error', { markupOnly: true }],
   },
 };
