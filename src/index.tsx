@@ -4,16 +4,19 @@ import { BrowserRouter } from 'react-router-dom';
 import ThemeProvider from './app/providers/ThemeProvider/ui/ThemeProvider';
 import App from 'app/App';
 import 'shared/config/i18n/i18n';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary/intex';
 
 const root = ReactDom.createRoot(
-    document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement
 );
 root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
-        </BrowserRouter>
-    </React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </ErrorBoundary>
+    </BrowserRouter>
+  </React.StrictMode>
 );

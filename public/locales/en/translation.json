@@ -1,5 +1,8 @@
 {
   "Тестовый перевод": "Test translate",
   "Язык": "English",
-  "Переключить": "Toggle"
+  "Переключить": "Toggle",
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "An unexpected error was happened",
+  "Перезагрузить": "Reload"
 }
