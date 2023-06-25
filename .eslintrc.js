@@ -35,5 +35,6 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     'linebreak-style': 'off',
+    'react/display-name': 'off',
   },
 };

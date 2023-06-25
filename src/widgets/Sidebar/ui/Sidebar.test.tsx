@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { Sidebar } from './Sidebar';
 import { renderWithTranslation } from 'shared/lib/renderWithTranslation/renderWithTranslation';
 
