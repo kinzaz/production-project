@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonTheme } from './Button';
 
 describe('Button component', () => {
   test('Button правильно рендерится со значениями по умолчанию', () => {
@@ -12,7 +12,7 @@ describe('Button component', () => {
 
   test('Button корректно применяет тему', () => {
     // eslint-disable-next-line
-    render(<Button theme={ThemeButton.CLEAR}>Clear Button</Button>);
+    render(<Button theme={ButtonTheme.CLEAR}>Clear Button</Button>);
     const buttonElement = screen.getByRole('button');
     expect(buttonElement).toHaveClass('clear');
     screen.debug();

@@ -1,15 +1,15 @@
 name: linting, testing, building
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [17.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -21,9 +21,12 @@ jobs:
         run: npm install
       - name: build production project
         run: npm run build:prod
+        if: always()
       - name: linting
         run: npm run eslint
+        if: always()
       - name: linting css
         run: npm run stylelint
+        if: always()
       - name: unit testing
         run: npm run test:unit
