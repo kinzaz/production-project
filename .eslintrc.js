@@ -27,7 +27,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react', 'i18next'],
+  plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks'],
   rules: {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
@@ -36,5 +36,7 @@ module.exports = {
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     'linebreak-style': 'off',
     'react/display-name': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
   },
 };

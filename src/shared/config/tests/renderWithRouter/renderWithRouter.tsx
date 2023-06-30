@@ -13,9 +13,9 @@ export function renderWithRouter(
   options: renderWithRouterOptions
 ) {
   const { route } = options;
-  
+
   return render(
-    <MemoryRouter initialEntries={[]}>
+    <MemoryRouter initialEntries={[route]}>
       <I18nextProvider i18n={i18n}>{component}</I18nextProvider>
     </MemoryRouter>
   );
