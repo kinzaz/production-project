@@ -6,6 +6,7 @@ import App from 'app/App';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary/intex';
 import 'shared/config/i18n/i18n';
 import 'app/styles/index.scss';
+import { StoreProvider } from 'app/providers/StoreProvider';
 
 const root = ReactDom.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,12 +14,14 @@ const root = ReactDom.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ErrorBoundary>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </ErrorBoundary>
-    </BrowserRouter>
+    <StoreProvider>
+      <BrowserRouter>
+        <ErrorBoundary>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </ErrorBoundary>
+      </BrowserRouter>
+    </StoreProvider>
   </React.StrictMode>
 );
