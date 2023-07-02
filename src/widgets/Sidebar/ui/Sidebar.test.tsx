@@ -5,15 +5,13 @@ import { componentRender } from 'shared/config/tests/componentRender/componentRe
 describe('Sidebar component', () => {
   test('Test render', () => {
     componentRender(<Sidebar />);
-    const sidebarElement = screen.getByTestId('sidebar');
-    expect(sidebarElement).toBeInTheDocument();
+    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
   test('Test toggle', () => {
     componentRender(<Sidebar />);
-    const toggleBtn = screen.getByTestId('sidebar-toggle');
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
-    fireEvent.click(toggleBtn);
+    fireEvent.click(screen.getByTestId('sidebar-toggle'));
     expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
   });
 });
