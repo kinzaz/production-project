@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { LoginModal } from 'features/AuthByUsername';
 
 interface NavbarProps {
   className?: string;
@@ -12,25 +12,24 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const onToggleModal = useCallback(() => {
-    setIsOpen((prev) => !prev);
+  const onCloseModal = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+  const onShowModal = useCallback(() => {
+    setIsOpen(true);
   }, []);
 
   const { t } = useTranslation(['about', 'main']);
   return (
     <div className={classNames(styles.navbar, {}, [className])}>
       <Button
-        onClick={onToggleModal}
+        onClick={onShowModal}
         theme={ButtonTheme.CLEAR_INVERTED}
         className={styles.links}
       >
         {t('Войти')}
       </Button>
-      <Modal isOpen={isOpen} onClose={onToggleModal}>
-        {/* eslint-disable */}
-        Modal
-        {/* eslint-disable */}
-      </Modal>
+      <LoginModal isOpen={isOpen} onClose={onCloseModal} />
     </div>
   );
 };
