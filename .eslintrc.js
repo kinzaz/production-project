@@ -40,5 +40,6 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     '@typescript-eslint/no-var-requires': 'off',
+    'react/prop-types': 'off',
   },
 };

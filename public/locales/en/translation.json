@@ -7,6 +7,12 @@
   "Произошла непредвиденная ошибка": "An unexpected error was happened",
   "Перезагрузить": "Reload",
   "Войти": "Sign in",
+  "Выйти": "Sign out",
   "Введите username": "Input username",
-  "Введите пароль": "Input password"
+  "Введите пароль": "Input password",
+  "Форма авторизации": "Authorization Form",
+  "Вы ввели неверный логин или пароль": "Login or password are not valid",
+  "Главная": "Main",
+  "Главная страница": "Main page",
+  "О сайте": "About us"
 }
