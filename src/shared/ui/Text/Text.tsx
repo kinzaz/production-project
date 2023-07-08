@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Text.module.scss';
 
@@ -14,16 +14,13 @@ interface TextProps {
   theme?: TextTheme;
 }
 
-export const Text: FunctionComponent<TextProps> = ({
-  className,
-  text,
-  title,
-  theme = TextTheme.PRIMARY,
-}) => {
-  return (
-    <div className={classNames(styles.Text, {}, [className, styles[theme]])}>
-      {title && <p className={styles.title}>{title}</p>}
-      {text && <p className={styles.text}>{text}</p>}
-    </div>
-  );
-};
+export const Text: FunctionComponent<TextProps> = memo(
+  ({ className, text, title, theme = TextTheme.PRIMARY }) => {
+    return (
+      <div className={classNames(styles.Text, {}, [className, styles[theme]])}>
+        {title && <p className={styles.title}>{title}</p>}
+        {text && <p className={styles.text}>{text}</p>}
+      </div>
+    );
+  }
+);
