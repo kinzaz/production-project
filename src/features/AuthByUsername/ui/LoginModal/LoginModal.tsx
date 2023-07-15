@@ -17,7 +17,7 @@ export const LoginModal: FunctionComponent<LoginModalProps> = ({
 }) => {
   return (
     <Modal
-      className={classNames(undefined, {}, [className])}
+      className={classNames('', {}, [className])}
       isOpen={isOpen}
       onClose={onClose}
       lazy

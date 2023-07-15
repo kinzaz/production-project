@@ -43,7 +43,7 @@ describe('classNames', () => {
   it('with classname undefined', () => {
     const expected = 'class1 class2 hovered scrollable';
     expect(
-      classNames(undefined, { hovered: true, scrollable: true }, [
+      classNames('', { hovered: true, scrollable: true }, [
         'class1',
         'class2',
       ])
