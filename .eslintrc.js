@@ -42,4 +42,8 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'react/prop-types': 'off',
   },
+  globals: {
+    __IS_DEV__: true,
+    __API__: true,
+  },
 };
