@@ -5,13 +5,14 @@ export const validateProfile = (profile?: Profile) => {
     return [ValidateProfileError.INCORRECT_NO_DATA];
   }
   const { first, lastname, age, country } = profile;
+
   const errors: ValidateProfileError[] = [];
 
   if (!first || !lastname) {
     errors.push(ValidateProfileError.INCORRECT_USER_DATA);
   }
 
-  if (!age || !Number.isInteger(age)) {
+  if (!age) {
     errors.push(ValidateProfileError.INCORRECT_AGE);
   }
 
