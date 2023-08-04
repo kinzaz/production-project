@@ -9,36 +9,36 @@ export interface Article {
   blocks: ArticleBlock[];
 }
 
-enum ArticleBlockType {
+export enum ArticleBlockType {
   CODE = 'CODE',
   IMAGE = 'IMAGE',
   TEXT = 'TEXT',
 }
 
-interface ArticleBlockBase {
+export interface ArticleBlockBase {
   id: string;
   type: ArticleBlockType;
 }
 
-interface ArticleCodeBlock extends ArticleBlockBase {
+export interface ArticleCodeBlock extends ArticleBlockBase {
   type: ArticleBlockType.CODE;
   code: string;
 }
-interface ArticleImageBlock extends ArticleBlockBase {
+export interface ArticleImageBlock extends ArticleBlockBase {
   type: ArticleBlockType.IMAGE;
   src: string;
   title: string;
 }
-interface ArticleTextBlock extends ArticleBlockBase {
+export interface ArticleTextBlock extends ArticleBlockBase {
   type: ArticleBlockType.TEXT;
   paragraphs: string[];
   title?: string;
 }
 
-enum ArticleType {
+export enum ArticleType {
   IT = 'IT',
   SCIENCE = 'SCIENCE',
   POLICY = 'POLICY',
 }
 
-type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
+export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;

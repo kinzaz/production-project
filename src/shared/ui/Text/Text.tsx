@@ -13,12 +13,18 @@ export enum TextALign {
   CENTER = 'center',
 }
 
+export enum TextSize {
+  M = 'size_m',
+  L = 'size_l',
+}
+
 interface TextProps {
   className?: string;
   title?: string;
   text?: string;
   theme?: TextTheme;
   align?: TextALign;
+  size?: TextSize;
 }
 
 export const Text: FunctionComponent<TextProps> = memo(
@@ -28,6 +34,7 @@ export const Text: FunctionComponent<TextProps> = memo(
     title,
     theme = TextTheme.PRIMARY,
     align = TextALign.LEFT,
+    size = TextSize.M,
   }) => {
     return (
       <div
@@ -35,6 +42,7 @@ export const Text: FunctionComponent<TextProps> = memo(
           className,
           styles[theme],
           styles[align],
+          styles[size],
         ])}
       >
         {title && <p className={styles.title}>{title}</p>}
