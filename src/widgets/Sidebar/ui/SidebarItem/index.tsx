@@ -2,7 +2,7 @@ import { FunctionComponent, memo } from 'react';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import styles from './SidebarItem.module.scss';
 import { useTranslation } from 'react-i18next';
-import { SidebarItemType } from 'widgets/Sidebar/model/items';
+import { SidebarItemType } from 'widgets/Sidebar/model/types';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
