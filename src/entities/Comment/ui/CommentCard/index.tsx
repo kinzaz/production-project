@@ -5,6 +5,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface CommentCardProps {
   comment: Comment;
@@ -30,12 +32,15 @@ export const CommentCard: FunctionComponent<CommentCardProps> = memo(
 
     return (
       <div className={classNames(styles.CommentCard, {}, [className])}>
-        <div className={styles.header}>
+        <AppLink
+          to={`${RoutePath.profile}${comment.user.id}`}
+          className={styles.header}
+        >
           {comment.user.avatar && (
             <Avatar src={comment.user.avatar} size={30} />
           )}
           <Text className={styles.username} title={comment.user.username} />
-        </div>
+        </AppLink>
         <Text className={styles.text} text={comment.text} />
       </div>
     );

@@ -23,6 +23,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -43,9 +44,12 @@ const ProfilePage = memo(() => {
     [ValidateProfileError.INCORRECT_NO_DATA]: t('Отсутствуют данные'),
     [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректные данные юзера'),
   };
+  const { id } = useParams<{ id: string }>();
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData());
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
   });
 
   const onChangeFirstname = useCallback(
