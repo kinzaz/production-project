@@ -6,7 +6,7 @@ import {
 } from 'entities/Article/model/selectors/articleDetailsSelectors';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { FunctionComponent, memo, useCallback, useEffect } from 'react';
+import { FunctionComponent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
@@ -27,6 +27,7 @@ import {
 import { ArticleCodeBlock } from '../ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
@@ -63,11 +64,9 @@ export const ArticleDetails: FunctionComponent<ArticleDetailsProps> = memo(
       }
     }, []);
 
-    useEffect(() => {
-      if (__PROJECT__ !== 'story') {
-        dispatch(fetchArticleById(id));
-      }
-    }, [dispatch, id]);
+    useInitialEffect(() => {
+      dispatch(fetchArticleById(id));
+    });
 
     let content;
 

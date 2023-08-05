@@ -3,7 +3,14 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://distribution.faceit-cdn.net/images/d25e4f2a-49e1-4c8c-9c30-9871cc6abbca.jpeg"
+    },
+    {
+      "id": "2",
+      "username": "admin2",
+      "password": "123",
+      "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671765_4-mykaleidoscope-ru-p-zloi-khaker-vkontakte-4.jpg"
     }
   ],
   "profile": {
