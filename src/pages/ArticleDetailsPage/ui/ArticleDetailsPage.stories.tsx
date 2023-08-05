@@ -21,6 +21,12 @@ const data = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
+  user: {
+    id: '1',
+    username: 'admin',
+    avatar:
+      'https://distribution.faceit-cdn.net/images/d25e4f2a-49e1-4c8c-9c30-9871cc6abbca.jpeg',
+  },
   type: [ArticleType.IT],
   blocks: [
     {
