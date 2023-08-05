@@ -20,12 +20,10 @@ export const CommentCard: FunctionComponent<CommentCardProps> = memo(
       return (
         <div className={classNames(styles.CommentCard, {}, [className])}>
           <div className={styles.header}>
-            <div>
-              <Skeleton width={30} height={30} border="50%" />
-              <Skeleton width={16} height={100} className={styles.username} />
-            </div>
-            <Skeleton className={styles.text} width={'100%'} height={50} />
+            <Skeleton width={30} height={30} border="50%" />
+            <Skeleton width={100} height={16} className={styles.username} />
           </div>
+          <Skeleton className={styles.text} width={'100%'} height={50} />
         </div>
       );
     }

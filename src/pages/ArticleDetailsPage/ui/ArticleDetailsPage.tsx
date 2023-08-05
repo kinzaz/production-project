@@ -1,6 +1,6 @@
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import { FunctionComponent, memo } from 'react';
+import { FunctionComponent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
@@ -19,6 +19,8 @@ import { getArticleDetailsCommentsIsLoading } from '../model/selectors/comments'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'app/providers/StoreProvider/hooks';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/addComment';
+import { addCommentForArticle } from '../model/services/addCommentForArticle';
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
@@ -35,15 +37,23 @@ const ArticleDetailsPage: FunctionComponent = () => {
     dispatch(fetchCommentsByArticleId(id));
   });
 
+  const onSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch]
+  );
+
   if (!id) {
     return <div>{t('Статья не найдена!')}</div>;
   }
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <div className={classNames(styles.ArticleDetailsPage, {}, [])}>
         <ArticleDetails id={id} />
         <Text className={styles.commentTitle} title={t('Комментарии')} />
+        <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

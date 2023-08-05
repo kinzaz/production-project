@@ -13,7 +13,7 @@ interface CommentListProps {
 }
 
 export const CommentList: FunctionComponent<CommentListProps> = memo(
-  ({ comments, className }) => {
+  ({ comments, className, isLoading }) => {
     const { t } = useTranslation('comments');
 
     return (
@@ -24,6 +24,7 @@ export const CommentList: FunctionComponent<CommentListProps> = memo(
               className={styles.comment}
               comment={comment}
               key={comment.id}
+              isLoading={isLoading}
             />
           ))
         ) : (

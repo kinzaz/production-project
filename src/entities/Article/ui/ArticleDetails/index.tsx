@@ -118,7 +118,7 @@ export const ArticleDetails: FunctionComponent<ArticleDetailsProps> = memo(
     }
 
     return (
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <DynamicModuleLoader reducers={reducers}>
         <div>{content}</div>
       </DynamicModuleLoader>
     );
