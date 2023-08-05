@@ -12,7 +12,6 @@ import { getUserAuthData } from 'entities/User';
 export const AppRouter = memo(() => {
   const auth = useSelector(getUserAuthData);
 
-  console.log('auth', auth);
   const renderWithWrapper = useCallback(
     (route: AppRoutesProps) => {
       const element = (

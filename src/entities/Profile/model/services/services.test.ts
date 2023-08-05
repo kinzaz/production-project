@@ -7,6 +7,7 @@ import { ValidateProfileError } from '../types/profile';
 import { updateProfileData } from './updateProfileData';
 
 const data = {
+  id: '1',
   username: 'vlad',
   lastname: 'Vlasenko',
   first: 'Vlad',
@@ -43,7 +44,7 @@ describe('update profile', () => {
       },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ data }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(thunk.api.put).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -57,7 +58,7 @@ describe('update profile', () => {
       },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
@@ -70,7 +71,7 @@ describe('update profile', () => {
       },
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);

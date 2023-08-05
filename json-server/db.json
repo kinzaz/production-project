@@ -16,7 +16,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "Влад",
+      "first": "Влад1",
       "lastname": "Власенко",
       "age": 25,
       "currency": "EUR",
@@ -122,66 +122,6 @@
       "text": "some comment 2",
       "articleId": "1",
       "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "123",
-      "id": "XhE6-hb"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "f[f[f[",
-      "id": "Ff4065l"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "fdfdfd",
-      "id": "erEpRac"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "fggf",
-      "id": "N0S_SbY"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "fdfdfd",
-      "id": "o-G9_q6"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "dsdss",
-      "id": "FWGcB-W"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "fdfd",
-      "id": "Wv_f-yP"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "fdfd",
-      "id": "1LwJ8tz"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "fdfdfd",
-      "id": "pKiLCzA"
     }
   ]
 }
