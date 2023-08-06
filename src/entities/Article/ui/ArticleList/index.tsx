@@ -25,19 +25,6 @@ export const ArticleList: FunctionComponent<ArticleListProps> = ({
   className,
   view = ArticleView.SMALL,
 }) => {
-  if (isLoading) {
-    return (
-      <div
-        className={classNames(styles.ArticleList, {}, [
-          className,
-          styles[view],
-        ])}
-      >
-        {getSkeletons(view)}
-      </div>
-    );
-  }
-
   const renderArticleList = (article: Article) => {
     return (
       <ArticleListItem
@@ -54,6 +41,7 @@ export const ArticleList: FunctionComponent<ArticleListProps> = ({
       className={classNames(styles.ArticleList, {}, [className, styles[view]])}
     >
       {articles.length > 0 ? articles.map(renderArticleList) : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 };

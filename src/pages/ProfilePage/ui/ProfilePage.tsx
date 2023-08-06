@@ -24,6 +24,7 @@ import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -113,30 +114,32 @@ const ProfilePage = memo(() => {
   );
 
   return (
-    <DynamicModuleLoader reducers={reducers} >
-      <ProfilePageHeader />
-      {validateErrors?.length &&
-        validateErrors.map((err, index) => (
-          <Text
-            theme={TextTheme.ERROR}
-            title={validateErrorTranslates[err]}
-            key={index}
-          />
-        ))}
-      <ProfileCard
-        data={form}
-        isLoading={isLoading}
-        error={error}
-        readonly={readonly}
-        onChangeFirstname={onChangeFirstname}
-        onChangeLastname={onChangeLastname}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeAvatar={onChangeAvatar}
-        onChangeUsername={onChangeUsername}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-      />
+    <DynamicModuleLoader reducers={reducers}>
+      <Page>
+        <ProfilePageHeader />
+        {validateErrors?.length &&
+          validateErrors.map((err, index) => (
+            <Text
+              theme={TextTheme.ERROR}
+              title={validateErrorTranslates[err]}
+              key={index}
+            />
+          ))}
+        <ProfileCard
+          data={form}
+          isLoading={isLoading}
+          error={error}
+          readonly={readonly}
+          onChangeFirstname={onChangeFirstname}
+          onChangeLastname={onChangeLastname}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeAvatar={onChangeAvatar}
+          onChangeUsername={onChangeUsername}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+        />
+      </Page>
     </DynamicModuleLoader>
   );
 });

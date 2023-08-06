@@ -23,6 +23,7 @@ import { AddCommentForm } from 'features/addComment';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page';
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
@@ -52,18 +53,18 @@ const ArticleDetailsPage: FunctionComponent = () => {
   }, [navigate]);
 
   if (!id) {
-    return <div>{t('Статья не найдена!')}</div>;
+    return <Page>{t('Статья не найдена!')}</Page>;
   }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(styles.ArticleDetailsPage, {}, [])}>
+      <Page className={classNames(styles.ArticleDetailsPage, {}, [])}>
         <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
         <ArticleDetails id={id} />
         <Text className={styles.commentTitle} title={t('Комментарии')} />
         <AddCommentForm onSendComment={onSendComment} />
         <CommentList isLoading={isLoading} comments={comments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

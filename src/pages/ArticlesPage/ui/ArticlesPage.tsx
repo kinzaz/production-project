@@ -19,6 +19,8 @@ import {
   getArticlesPageView,
 } from '../model/selectors';
 import { ArticleViewSwitcher } from 'features/SwitchArticleView';
+import { Page } from 'shared/ui/Page';
+import { fetchNewArticlesPage } from '../model/services/fetchNewArticlesPage';
 
 const reducers: ReducersList = {
   articlesPage: articlePageSliceReducer,
@@ -31,9 +33,17 @@ const ArticlesPage: FunctionComponent = () => {
   const view = useSelector(getArticlesPageView);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
     dispatch(articlePageSliceAction.initState());
+    dispatch(
+      fetchArticlesList({
+        page: 1,
+      })
+    );
   });
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNewArticlesPage());
+  }, [dispatch]);
 
   const onChangeView = useCallback(
     (view: ArticleView) => {
@@ -44,10 +54,10 @@ const ArticlesPage: FunctionComponent = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div>
+      <Page onScrollEnd={onLoadNextPart}>
         <ArticleViewSwitcher view={view} onViewClick={onChangeView} />
         <ArticleList view={view} isLoading={isLoading} articles={articles} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
