@@ -1,0 +1,13 @@
+.divider {
+  background-color: var(--primary-color);
+  height: 1px;
+  margin: 0;
+}
+
+$sizes: 4, 8, 12, 16, 20, 24, 28, 32;
+
+@each $size in $sizes {
+  .divider--margin-#{$size} {
+    margin: #{$size}px 0;
+  }
+}
