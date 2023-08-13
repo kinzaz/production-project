@@ -53,3 +53,9 @@ export enum ArticleView {
   BIG = 'BIG',
   SMALL = 'SMALL',
 }
+
+export enum ArticleSortField {
+  VIEW = 'views',
+  TITLE = 'title',
+  CREATED = 'createdAt',
+}

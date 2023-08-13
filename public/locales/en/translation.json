@@ -17,5 +17,13 @@
   "О сайте": "About us",
   "Страница профиля": "Profile Page",
   "Профиль": "Profile",
-  "Копировать": "Copy"
+  "Копировать": "Copy",
+  "Сортировать по": "Sort by",
+  "Поиск": "Search",
+  "по": "in",
+  "возрастанию": "ascending order",
+  "убыванию": "descending order",
+  "названию": "title order",
+  "дате создания": "created order",
+  "просмотрам": "views order"
 }

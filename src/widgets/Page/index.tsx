@@ -3,7 +3,6 @@ import {
   MutableRefObject,
   PropsWithChildren,
   UIEvent,
-  useEffect,
   useRef,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -51,7 +50,7 @@ export const Page: FunctionComponent<
       onScroll={onScroll}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd && <div className={styles.trigger} ref={triggerRef} />}
     </section>
   );
 };
