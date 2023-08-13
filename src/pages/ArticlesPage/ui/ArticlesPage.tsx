@@ -12,7 +12,6 @@ import {
 } from '../model/slices/articlePageSlice';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'app/providers/StoreProvider/hooks';
-import { fetchArticlesList } from '../model/services/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
   getArticlesPageIsLoading,
@@ -21,6 +20,7 @@ import {
 import { ArticleViewSwitcher } from 'features/SwitchArticleView';
 import { Page } from 'shared/ui/Page';
 import { fetchNewArticlesPage } from '../model/services/fetchNewArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage';
 
 const reducers: ReducersList = {
   articlesPage: articlePageSliceReducer,
@@ -33,12 +33,7 @@ const ArticlesPage: FunctionComponent = () => {
   const view = useSelector(getArticlesPageView);
 
   useInitialEffect(() => {
-    dispatch(articlePageSliceAction.initState());
-    dispatch(
-      fetchArticlesList({
-        page: 1,
-      })
-    );
+    dispatch(initArticlesPage());
   });
 
   const onLoadNextPart = useCallback(() => {
