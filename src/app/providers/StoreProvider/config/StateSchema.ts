@@ -14,10 +14,12 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { AddCommentFormSchema } from 'features/addComment';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollPlaceSchema } from 'widgets/ScrollPlace';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollPlace: ScrollPlaceSchema;
 
   // Async reducers
   loginForm?: LoginSchema;

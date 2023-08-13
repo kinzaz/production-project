@@ -23,7 +23,7 @@ import { AddCommentForm } from 'features/addComment';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,

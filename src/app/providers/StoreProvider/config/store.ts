@@ -9,6 +9,7 @@ import { StateSchema, ThunkExtraArgs } from './StateSchema';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
+import { scrollPlaceReducer } from 'widgets/ScrollPlace';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -18,6 +19,7 @@ export function createReduxStore(
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    scrollPlace: scrollPlaceReducer,
   };
 
   const reducerManager = createReducerManager(rootReducer);

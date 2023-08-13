@@ -18,7 +18,7 @@ import {
   getArticlesPageView,
 } from '../model/selectors';
 import { ArticleViewSwitcher } from 'features/SwitchArticleView';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { fetchNewArticlesPage } from '../model/services/fetchNewArticlesPage';
 import { initArticlesPage } from '../model/services/initArticlesPage';
 
