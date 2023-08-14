@@ -5,6 +5,7 @@ import {
 import {
   ArticleSortField,
   ArticleSortSelector,
+  ArticleType,
   ArticleView,
 } from 'entities/Article';
 import { ArticleViewSwitcher } from 'features/SwitchArticleView';
@@ -13,6 +14,7 @@ import {
   getArticlesPageView,
   getArticlesSearch,
   getArticlesSort,
+  getArticlesType,
 } from 'pages/ArticlesPage/model/selectors';
 import { articlePageSliceAction } from 'pages/ArticlesPage/model/slices/articlePageSlice';
 import { FunctionComponent, useCallback } from 'react';
@@ -24,6 +26,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
+import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs';
 
 export const ArticlePageFilters: FunctionComponent = () => {
   const dispatch = useAppDispatch();
@@ -32,6 +35,7 @@ export const ArticlePageFilters: FunctionComponent = () => {
   const sort = useAppSelector(getArticlesSort);
   const order = useAppSelector(getArticlesOrder);
   const search = useAppSelector(getArticlesSearch);
+  const type = useAppSelector(getArticlesType);
 
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesList({ page: 1, replace: true }));
@@ -75,6 +79,12 @@ export const ArticlePageFilters: FunctionComponent = () => {
     [dispatch, debouncedFetchData]
   );
 
+  const checkoutHandler = (tab: ArticleType) => {
+    dispatch(articlePageSliceAction.setType(tab));
+    dispatch(articlePageSliceAction.setPage(1));
+    fetchData();
+  };
+
   return (
     <div>
       <div className={styles.sortWrapper}>
@@ -93,6 +103,7 @@ export const ArticlePageFilters: FunctionComponent = () => {
           placeholder={t('Поиск')}
         />
       </Card>
+      <ArticleTypeTabs checkoutHandler={checkoutHandler} type={type} />
     </div>
   );
 };

@@ -34,7 +34,7 @@ module.exports = {
     semi: ['error', 'always'],
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-    'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'i18next/no-literal-string': 'off',
     'linebreak-style': 'off',
     'react/display-name': 'off',
     'react-hooks/rules-of-hooks': 'error',
