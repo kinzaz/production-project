@@ -4,7 +4,10 @@ import {
   ArticleTextBlock as ArticleTextBlockType,
   ArticleView,
 } from 'entities/Article/model/types/article';
-import { FunctionComponent, useCallback } from 'react';
+import {
+  FunctionComponent,
+  HTMLAttributeAnchorTarget,
+} from 'react';
 import styles from './index.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -15,21 +18,22 @@ import { Avatar } from 'shared/ui/Avatar';
 import { Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleTextBlock } from '../ArticleTextBlock';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 interface ArticleListItemProps {
   article: Article;
   view: ArticleView;
   className?: string;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
   article,
   view,
   className,
+  target,
 }) => {
-  const navigate = useNavigate();
   const { t } = useTranslation('article');
 
   const types = (
@@ -41,10 +45,6 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
       <Icon Svg={EyeIcon} />
     </>
   );
-
-  const onOpenArticle = useCallback(() => {
-    navigate(RoutePath.article + article.id);
-  }, [navigate, article.id]);
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
@@ -71,7 +71,9 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
             <ArticleTextBlock block={textBlock} className={styles.textBlock} />
           )}
           <div className={styles.footer}>
-            <Button onClick={onOpenArticle}>{t('Читать далее')}</Button>
+            <AppLink to={RoutePath.article + article.id} target={target}>
+              <Button>{t('Читать далее')}</Button>
+            </AppLink>
             {views}
           </div>
         </Card>
@@ -80,13 +82,15 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
   }
 
   return (
-    <div
+    <AppLink
+      target={target}
+      to={RoutePath.article + article.id}
       className={classNames(styles.ArticleListItem, {}, [
         className,
         styles[view],
       ])}
     >
-      <Card onClick={onOpenArticle}>
+      <Card>
         <div className={styles.imageWrapper}>
           <img src={article.img} alt={article.title} className={styles.img} />
           <Text text={article.createdAt} className={styles.date} />
@@ -97,6 +101,6 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
         </div>
         <Text text={article.title} className={styles.title} />
       </Card>
-    </div>
+    </AppLink>
   );
 };

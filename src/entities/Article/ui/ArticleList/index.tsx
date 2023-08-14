@@ -1,5 +1,5 @@
 import { Article, ArticleView } from 'entities/Article/model/types/article';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
 import { ArticleListItem } from '../ArticleListItem';
 import styles from './index.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -10,6 +10,7 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleView;
   className?: string;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -24,6 +25,7 @@ export const ArticleList: FunctionComponent<ArticleListProps> = ({
   isLoading,
   className,
   view = ArticleView.SMALL,
+  target,
 }) => {
   const renderArticleList = (article: Article) => {
     return (
@@ -32,6 +34,7 @@ export const ArticleList: FunctionComponent<ArticleListProps> = ({
         className={styles.card}
         article={article}
         view={view}
+        target={target}
       />
     );
   };

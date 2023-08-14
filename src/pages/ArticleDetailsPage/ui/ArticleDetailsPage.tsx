@@ -10,10 +10,7 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments,
-} from '../model/slices/ArticleDetailsCommentsSlice';
+import { getArticleComments } from '../model/slices/ArticleDetailsCommentsSlice';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsCommentsIsLoading } from '../model/selectors/comments';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
@@ -24,17 +21,14 @@ import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page';
-import {
-  articleDetailsRecommendationsReducer,
-  getArticleRecommendations,
-} from '../model/slices/ArticleDetailsRecommendationsSlice';
+import { getArticleRecommendations } from '../model/slices/ArticleDetailsRecommendationsSlice';
 import { getArticleDetailsRecommendationIsLoading } from '../model/selectors/recommendation';
 import { ArticleList } from 'entities/Article/ui/ArticleList';
 import { fetchArticlesRecommendations } from '../model/services/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../model/slices';
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
-  articleDetailsRecommendations: articleDetailsRecommendationsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage: FunctionComponent = () => {
@@ -84,6 +78,7 @@ const ArticleDetailsPage: FunctionComponent = () => {
           isLoading={isLoadingRecommendation}
           articles={recommendations}
           className={styles.recommendation}
+          target="_blank"
         />
         <Text
           size={TextSize.L}
