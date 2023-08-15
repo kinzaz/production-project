@@ -25,5 +25,6 @@
   "убыванию": "descending order",
   "названию": "title order",
   "дате создания": "created order",
-  "просмотрам": "views order"
+  "просмотрам": "views order",
+  "Создать статью": "Create new Article"
 }
