@@ -28,7 +28,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react', 'i18next', 'react-hooks'],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'i18next',
+    'react-hooks',
+    'kinzaz-test-plugin',
+  ],
   rules: {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
@@ -41,6 +47,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     '@typescript-eslint/no-var-requires': 'off',
     'react/prop-types': 'off',
+    'kinzaz-test-plugin/path-checker': 'off',
   },
   globals: {
     __IS_DEV__: true,
