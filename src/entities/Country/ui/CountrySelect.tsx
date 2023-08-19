@@ -1,8 +1,8 @@
 import { FunctionComponent, memo, useCallback } from 'react';
-import { Select } from 'shared/ui/Select';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Country } from '../model/Country';
+import { Listbox } from 'shared/ui/ListBox';
 
 const optionsList = [
   { value: Country.Russia, content: Country.Russia },
@@ -30,13 +30,15 @@ export const CountrySelect: FunctionComponent<CountrySelectProps> = memo(
     );
 
     return (
-      <Select
+      <Listbox
         className={classNames('', {}, [className])}
         value={value}
         onChange={onChangeHandler}
-        label={t('Укажите страну')}
-        options={optionsList}
+        items={optionsList}
+        defaultValue={t('Укажите страну')}
         readonly={readonly}
+        direction="top"
+        label="Укажите страну"
       />
     );
   }
