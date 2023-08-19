@@ -44,13 +44,13 @@ export const Page: FunctionComponent<
   }, 500);
 
   return (
-    <section
+    <main
       ref={wrapperRef}
       className={classNames(styles.Page, {}, [className])}
       onScroll={onScroll}
     >
       {children}
       {onScrollEnd && <div className={styles.trigger} ref={triggerRef} />}
-    </section>
+    </main>
   );
 };
