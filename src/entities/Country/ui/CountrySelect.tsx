@@ -37,7 +37,7 @@ export const CountrySelect: FunctionComponent<CountrySelectProps> = memo(
         items={optionsList}
         defaultValue={t('Укажите страну')}
         readonly={readonly}
-        direction="top"
+        direction="top right"
         label="Укажите страну"
       />
     );

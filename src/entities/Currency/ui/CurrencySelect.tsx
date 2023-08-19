@@ -36,7 +36,7 @@ export const CurrencySelect: FunctionComponent<CurrencySelectProps> = memo(
         items={optionsList}
         defaultValue={t('Укажите валюту')}
         readonly={readonly}
-        direction="top"
+        direction="top right"
         label="Укажите валюту"
       />
     );

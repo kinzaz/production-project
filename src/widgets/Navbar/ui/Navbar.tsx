@@ -9,6 +9,8 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown';
+import { Avatar } from 'shared/ui/Avatar';
 
 interface NavbarProps {
   className?: string;
@@ -35,7 +37,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   if (authData) {
     return (
-      <div className={classNames(styles.navbar, {}, [className])}>
+      <header className={classNames(styles.navbar, {}, [className])}>
         <Text
           theme={TextTheme.INVERTED}
           className={styles.appName}
@@ -44,14 +46,21 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.article_create}>
           {t('Создать статью')}
         </AppLink>
-        <Button
-          onClick={onLogout}
-          theme={ButtonTheme.CLEAR_INVERTED}
-          className={styles.links}
-        >
-          {t('Выйти')}
-        </Button>
-      </div>
+        <Dropdown
+          className={styles.dropdown}
+          items={[
+            {
+              content: t('Профиль'),
+              href: RoutePath.profile + authData.id,
+            },
+            {
+              content: t('Выйти'),
+              onClicK: onLogout,
+            },
+          ]}
+          trigger={<Avatar size={30} src={authData.avatar} />}
+        />
+      </header>
     );
   }
 
