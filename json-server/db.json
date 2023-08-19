@@ -46,7 +46,9 @@
       "views": 10222,
       "createdAt": "26.02.2021",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -116,7 +118,9 @@
       "views": 1072,
       "createdAt": "26.02.2012",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -186,7 +190,9 @@
       "views": 10221,
       "createdAt": "26.02.2010",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -256,7 +262,9 @@
       "views": 102211,
       "createdAt": "26.02.2024",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -326,7 +334,9 @@
       "views": 2022,
       "createdAt": "26.02.2025",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -396,7 +406,9 @@
       "views": 10242,
       "createdAt": "26.02.2020",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -466,7 +478,9 @@
       "views": 5022,
       "createdAt": "26.09.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -536,7 +550,9 @@
       "views": 11022,
       "createdAt": "26.12.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -606,7 +622,9 @@
       "views": 10022,
       "createdAt": "26.01.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -676,7 +694,9 @@
       "views": 7022,
       "createdAt": "26.01.2012",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -746,7 +766,9 @@
       "views": 522,
       "createdAt": "21.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -821,6 +843,18 @@
       "text": "some comment 2",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "11",
+      "userId": "1",
+      "text": "fdfddf",
+      "id": "3C_cy8s"
+    },
+    {
+      "articleId": "11",
+      "userId": "1",
+      "text": "fdfdfd",
+      "id": "UdySfK9"
     }
   ]
 }

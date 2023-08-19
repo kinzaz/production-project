@@ -2,9 +2,9 @@ import { Comment } from 'entities/Comment/model/types/comment';
 import { FunctionComponent, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
-import { CommentCard } from '../CommentCard';
-import styles from './index.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { CommentCard } from './CommentCard';
+import { VStack } from 'shared/ui/Stack/VStack';
 
 interface CommentListProps {
   className?: string;
@@ -17,11 +17,10 @@ export const CommentList: FunctionComponent<CommentListProps> = memo(
     const { t } = useTranslation('comments');
 
     return (
-      <div className={classNames(styles.CommentList, {}, [className])}>
+      <VStack gap="16" className={classNames('', {}, [className])}>
         {comments?.length ? (
           comments.map((comment) => (
             <CommentCard
-              className={styles.comment}
               comment={comment}
               key={comment.id}
               isLoading={isLoading}
@@ -30,7 +29,7 @@ export const CommentList: FunctionComponent<CommentListProps> = memo(
         ) : (
           <Text text={t('Комментарии отсутствуют')} />
         )}
-      </div>
+      </VStack>
     );
   }
 );

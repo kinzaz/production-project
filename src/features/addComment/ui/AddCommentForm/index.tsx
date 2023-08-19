@@ -14,6 +14,7 @@ import {
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import styles from './index.module.scss';
+import { HStack } from 'shared/ui/Stack/HStack';
 
 export interface AddCommentPageProps {
   onSendComment: (text: string) => void;
@@ -44,7 +45,7 @@ const AddCommentForm: FunctionComponent<AddCommentPageProps> = ({
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={styles.AddCommentForm}>
+      <HStack justify="between" className={styles.AddCommentForm}>
         <Input
           className={styles.input}
           value={text}
@@ -52,7 +53,7 @@ const AddCommentForm: FunctionComponent<AddCommentPageProps> = ({
           placeholder={t('Введите текст комментария')}
         />
         <Button onClick={onSendHandler}>{t('Отправить')}</Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 };

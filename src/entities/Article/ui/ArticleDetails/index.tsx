@@ -28,6 +28,8 @@ import { ArticleCodeBlock } from '../ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { HStack } from 'shared/ui/Stack/HStack';
+import { VStack } from 'shared/ui/Stack/VStack';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,
@@ -95,23 +97,25 @@ export const ArticleDetails: FunctionComponent<ArticleDetailsProps> = memo(
     } else {
       content = (
         <>
-          <div className={styles.avatarWrapper}>
+          <HStack justify="center" className={styles.avatarWrapper}>
             <Avatar size={200} src={article?.img} />
-          </div>
-          <Text
-            className={styles.title}
-            title={article?.title}
-            text={article?.subtitle}
-            size={TextSize.L}
-          />
-          <div className={styles.articleInfo}>
-            <Icon className={styles.icon} Svg={EyeIcon} />
-            <Text text={`${article?.views}`} />
-          </div>
-          <div className={styles.articleInfo}>
-            <Icon className={styles.icon} Svg={CalendarIcon} />
-            <Text text={article?.createdAt} />
-          </div>
+          </HStack>
+          <VStack gap="4">
+            <Text
+              className={styles.title}
+              title={article?.title}
+              text={article?.subtitle}
+              size={TextSize.L}
+            />
+            <HStack gap="8">
+              <Icon className={styles.icon} Svg={EyeIcon} />
+              <Text text={`${article?.views}`} />
+            </HStack>
+            <HStack gap="8">
+              <Icon className={styles.icon} Svg={CalendarIcon} />
+              <Text text={article?.createdAt} />
+            </HStack>
+          </VStack>
           {article?.blocks.map(renderBlock)}
         </>
       );
@@ -119,7 +123,7 @@ export const ArticleDetails: FunctionComponent<ArticleDetailsProps> = memo(
 
     return (
       <DynamicModuleLoader reducers={reducers}>
-        <div>{content}</div>
+        <VStack gap="16">{content}</VStack>
       </DynamicModuleLoader>
     );
   }

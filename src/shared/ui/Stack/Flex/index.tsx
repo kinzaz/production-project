@@ -1,25 +1,26 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
 import styles from './index.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 
 export type FlexJustify = 'start' | 'end' | 'center' | 'between';
 export type FlexAlign = 'start' | 'end' | 'center' | 'between';
 export type FlexDirection = 'row' | 'column';
 export type FlexGap = '4' | '8' | '16' | '32';
 
-interface FlexProps {
+export interface FlexProps {
   className?: string;
-  justify: FlexJustify;
-  align: FlexAlign;
-  direction: FlexDirection;
+  justify?: FlexJustify;
+  align?: FlexAlign;
+  direction?: FlexDirection;
   gap?: FlexGap;
+  max?: boolean;
 }
 
 const justifyClasses: Record<FlexJustify, string> = {
   between: styles.justifyBetween,
-  center: styles.jusztifyCenter,
-  end: styles.jusztifyEnd,
-  start: styles.jusztifyStart,
+  center: styles.justifyCenter,
+  end: styles.justifyEnd,
+  start: styles.justifyStart,
 };
 
 const alignClasses: Record<FlexAlign, string> = {
@@ -48,6 +49,7 @@ export const Flex: FunctionComponent<PropsWithChildren<FlexProps>> = ({
   align = 'center',
   direction = 'row',
   gap,
+  max,
 }) => {
   const classes = [
     className,
@@ -56,5 +58,10 @@ export const Flex: FunctionComponent<PropsWithChildren<FlexProps>> = ({
     directionClasses[direction],
     gap && gapClasses[gap],
   ];
-  return <div className={classNames(styles.Flex, {}, classes)}>{children}</div>;
+  const mods: Mods = {
+    [styles.max]: max,
+  };
+  return (
+    <div className={classNames(styles.Flex, mods, classes)}>{children}</div>
+  );
 };
