@@ -7,7 +7,7 @@ import { getProfileForm } from './getProfileForm';
 import { getProfileIsLoading } from './getProfileIsLoading';
 import { getProfileReadonly } from './getProfileReadonly';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
-import { ValidateProfileError } from '../types/profile';
+import { ValidateProfileError } from '../types/editableProfileCardSchema';
 
 describe('getProfileData', () => {
   test('should return data', () => {

@@ -3,8 +3,8 @@ import { fetchProfileData } from './fetchProfileData';
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { validateProfile } from './validateProfile';
-import { ValidateProfileError } from '../types/profile';
 import { updateProfileData } from './updateProfileData';
+import { ValidateProfileError } from '../types/editableProfileCardSchema';
 
 const data = {
   id: '1',

@@ -3,15 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import {
-  getProfileData,
-  getProfileReadonly,
-  profileActions,
-  updateProfileData,
-} from 'entities/Profile';
 import { useAppDispatch } from 'app/providers/StoreProvider/hooks';
 import { getUserAuthData } from 'entities/User';
 import { HStack } from 'shared/ui/Stack/HStack';
+import { getProfileData } from 'features/editableProfileCard/model/selectors/getProfileData';
+import { getProfileReadonly } from 'features/editableProfileCard/model/selectors/getProfileReadonly';
+import { updateProfileData } from 'features/editableProfileCard/model/services/updateProfileData';
+import { profileActions } from 'features/editableProfileCard/model/slice/ProfileSlice';
 
 export const ProfilePageHeader: FunctionComponent = () => {
   const { t } = useTranslation('profile');

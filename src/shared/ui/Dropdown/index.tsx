@@ -38,9 +38,10 @@ export const Dropdown: FunctionComponent<DropDownProps> = ({
     <Menu as={'div'} className={classNames(styles.Dropdown, {}, [className])}>
       <Menu.Button className={styles.btn}>{trigger}</Menu.Button>
       <Menu.Items className={classNames(styles.menu, {}, menuClasses)}>
-        {items.map((item) => {
+        {items.map((item, i) => {
           const content = ({ active }: { active: boolean }) => (
             <button
+              key={i}
               onClick={item.onClicK}
               className={classNames(
                 styles.item,

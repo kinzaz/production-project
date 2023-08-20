@@ -1,8 +1,8 @@
 import { Currency } from 'entities/Currency';
-import { ProfileSchema, ValidateProfileError } from '../types/profile';
 import { profileActions, profileReducer } from './ProfileSlice';
 import { Country } from 'entities/Country';
 import { updateProfileData } from '../services/updateProfileData';
+import { ProfileSchema, ValidateProfileError } from '../types/editableProfileCardSchema';
 
 const data = {
   username: 'vlad',

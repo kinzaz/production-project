@@ -51,6 +51,7 @@ export const ArticleList: FunctionComponent<ArticleListProps> = ({
       </div>
     );
   }
+  console.log('articles', articles);
 
   return (
     <div
