@@ -16,8 +16,12 @@ import { getProfileReadonly } from 'features/editableProfileCard/model/selectors
 import { getProfileValidateErrors } from 'features/editableProfileCard/model/selectors/getProfileValidateErrors';
 import { fetchProfileData } from 'features/editableProfileCard/model/services/fetchProfileData';
 import { profileActions } from 'features/editableProfileCard/model/slice/ProfileSlice';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articlePageSliceReducer } from 'pages/ArticlesPage/model/slices/articlePageSlice';
+import { ProfilePageHeader } from '../EditableProfileHeader';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -115,12 +119,14 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div className={classNames('', {}, [className])}>
+        <ProfilePageHeader />
         {validateErrors?.length &&
           validateErrors.map((err, index: number) => (
             <Text
               theme={TextTheme.ERROR}
               title={validateErrorTranslates[err]}
               key={index}
+              data-testId={'EditableProfileCard.Error'}
             />
           ))}
         <ProfileCard

@@ -3,7 +3,6 @@ import {
   DynamicModuleLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ProfilePageHeader } from './ProfilePageHeader';
 import { Page } from 'widgets/Page';
 import { VStack } from 'shared/ui/Stack/VStack';
 import { useParams } from 'react-router-dom';
@@ -20,10 +19,7 @@ const ProfilePage = memo(() => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page>
-        <VStack gap="16">
-          <ProfilePageHeader />
-          {id && <EditableProfileCard id={id} />}
-        </VStack>
+        <VStack gap="16">{id && <EditableProfileCard id={id} />}</VStack>
       </Page>
     </DynamicModuleLoader>
   );

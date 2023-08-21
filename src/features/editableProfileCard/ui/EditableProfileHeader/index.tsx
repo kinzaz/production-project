@@ -37,15 +37,27 @@ export const ProfilePageHeader: FunctionComponent = () => {
       {canEdit && (
         <>
           {readonly ? (
-            <Button theme={ButtonTheme.OUTLINE} onClick={onEdit}>
+            <Button
+              data-testId={'ProfilePageHeader.EditButton'}
+              theme={ButtonTheme.OUTLINE}
+              onClick={onEdit}
+            >
               {t('Редактировать')}
             </Button>
           ) : (
             <HStack gap="8">
-              <Button theme={ButtonTheme.OUTLINE} onClick={onSave}>
+              <Button
+                data-testId={'ProfilePageHeader.SaveButton'}
+                theme={ButtonTheme.OUTLINE}
+                onClick={onSave}
+              >
                 {t('Сохранить')}
               </Button>
-              <Button theme={ButtonTheme.OUTLINE_RED} onClick={onCancelEdit}>
+              <Button
+                data-testId={'ProfilePageHeader.CancelButton'}
+                theme={ButtonTheme.OUTLINE_RED}
+                onClick={onCancelEdit}
+              >
                 {t('Отменить')}
               </Button>
             </HStack>
