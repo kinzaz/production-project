@@ -26,5 +26,6 @@
   "названию": "title order",
   "дате создания": "created order",
   "просмотрам": "views order",
-  "Создать статью": "Create new Article"
+  "Создать статью": "Create new Article",
+  "Нет доступа": "Forbidden"
 }

@@ -23,7 +23,9 @@ export const AppRouter = memo(() => {
           path={route.path}
           element={
             route.authOnly ? (
-              <RequireAuth auth={Boolean(auth)}>{element}</RequireAuth>
+              <RequireAuth roles={route.roles} auth={Boolean(auth)}>
+                {element}
+              </RequireAuth>
             ) : (
               element
             )

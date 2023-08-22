@@ -5,7 +5,12 @@ import { memo, useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions,
+} from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -20,7 +25,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const authData = useSelector(getUserAuthData);
-
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
+  const isAdminPanelAvailable = isAdmin || isManager;
   const onCloseModal = useCallback(() => {
     setIsOpen(false);
   }, []);
@@ -49,6 +56,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         <Dropdown
           className={styles.dropdown}
           items={[
+            ...(isAdminPanelAvailable
+              ? [
+                  {
+                    content: t('Админка'),
+                    href: RoutePath.admin,
+                  },
+                ]
+              : []),
             {
               content: t('Профиль'),
               href: RoutePath.profile + authData.id,
