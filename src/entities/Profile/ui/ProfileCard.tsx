@@ -87,7 +87,7 @@ export const ProfileCard: FunctionComponent<ProfileCardProps> = ({
         placeholder={t('Ваше имя')}
         onChange={onChangeFirstname}
         readonly={readonly}
-        data-testId={'ProfileCard.firstname'}
+        data-testid={'ProfileCard.firstname'}
       />
       <Input
         className={styles.input}
@@ -95,7 +95,7 @@ export const ProfileCard: FunctionComponent<ProfileCardProps> = ({
         placeholder={t('Ваша фамилия')}
         onChange={onChangeLastname}
         readonly={readonly}
-        data-testId={'ProfileCard.lastname'}
+        data-testid={'ProfileCard.lastname'}
       />
       <Input
         className={styles.input}

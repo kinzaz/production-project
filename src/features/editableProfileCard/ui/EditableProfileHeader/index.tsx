@@ -38,7 +38,7 @@ export const ProfilePageHeader: FunctionComponent = () => {
         <>
           {readonly ? (
             <Button
-              data-testId={'ProfilePageHeader.EditButton'}
+              data-testid={'ProfilePageHeader.EditButton'}
               theme={ButtonTheme.OUTLINE}
               onClick={onEdit}
             >
@@ -47,14 +47,14 @@ export const ProfilePageHeader: FunctionComponent = () => {
           ) : (
             <HStack gap="8">
               <Button
-                data-testId={'ProfilePageHeader.SaveButton'}
+                data-testid={'ProfilePageHeader.SaveButton'}
                 theme={ButtonTheme.OUTLINE}
                 onClick={onSave}
               >
                 {t('Сохранить')}
               </Button>
               <Button
-                data-testId={'ProfilePageHeader.CancelButton'}
+                data-testid={'ProfilePageHeader.CancelButton'}
                 theme={ButtonTheme.OUTLINE_RED}
                 onClick={onCancelEdit}
               >
