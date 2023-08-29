@@ -2,9 +2,11 @@ import { Fragment, FunctionComponent, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import styles from './index.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from '../Button/Button';
-import { HStack } from '../Stack/HStack';
+import { Button } from '../../../Button/Button';
+import { HStack } from '../../../Stack/HStack';
 import { DropDownDirection } from 'shared/types/ui';
+import { mapDirectionClass } from '../../styles/Consts';
+import popupStyles from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
   value: string;
@@ -23,13 +25,6 @@ interface ListBoxProps {
   label?: string;
 }
 
-const mapDirectionClass: Record<DropDownDirection, string> = {
-  'bottom left': styles.optionsBottomLeft,
-  'bottom right': styles.optionsBottomRight,
-  'top left': styles.optionsTopLeft,
-  'top right': styles.optionsTopRight,
-};
-
 export const Listbox: FunctionComponent<ListBoxProps> = ({
   className,
   items,
@@ -47,7 +42,7 @@ export const Listbox: FunctionComponent<ListBoxProps> = ({
       {label && <span>{label + '>'}</span>}
       <HListBox
         as="div"
-        className={classNames(styles.ListBox, {}, [className])}
+        className={classNames(popupStyles.popup, {}, [className])}
         value={value}
         onChange={onChange}
         disabled={readonly}
@@ -70,8 +65,8 @@ export const Listbox: FunctionComponent<ListBoxProps> = ({
                   className={classNames(
                     styles.option,
                     {
-                      [styles.active]: active,
-                      [styles.disabled]: item.disabled,
+                      [popupStyles.active]: active,
+                      [popupStyles.disabled]: item.disabled,
                     },
                     []
                   )}

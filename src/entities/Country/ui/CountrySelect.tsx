@@ -2,7 +2,7 @@ import { FunctionComponent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Country } from '../model/Country';
-import { Listbox } from 'shared/ui/ListBox';
+import { Listbox } from 'shared/ui/Popups';
 
 const optionsList = [
   { value: Country.Russia, content: Country.Russia },
