@@ -22,6 +22,28 @@
       "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671765_4-mykaleidoscope-ru-p-zloi-khaker-vkontakte-4.jpg"
     }
   ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Уведомление 1",
+      "description": "Произошло какое-то событие",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Уведомление 2",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "3",
+      "title": "Уведомление 3",
+      "description": "Произошло какое-то событие",
+      "userId": "1",
+      "href": "http://localhost:3000/admin"
+    }
+  ],
   "profile": [
     {
       "id": "1",
