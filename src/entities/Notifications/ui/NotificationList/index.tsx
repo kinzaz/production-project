@@ -24,7 +24,10 @@ export const NotificationList: FunctionComponent<{ className?: string }> = ({
   }
 
   return (
-    <VStack className={classNames(styles.NotificationList, {}, [className])}>
+    <VStack
+      gap="8"
+      className={classNames(styles.NotificationList, {}, [className])}
+    >
       {data?.map((item, i) => (
         <NotificationItem key={i} item={item} />
       ))}
