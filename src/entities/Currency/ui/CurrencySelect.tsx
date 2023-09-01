@@ -1,8 +1,8 @@
 import { FunctionComponent, memo, useCallback } from 'react';
 import { Currency } from '../model/types/currency';
 import { useTranslation } from 'react-i18next';
-import { Listbox } from 'shared/ui/Popups';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Listbox } from '@/shared/ui/Popups';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 const optionsList = [
   { value: Currency.RUB, content: Currency.RUB },

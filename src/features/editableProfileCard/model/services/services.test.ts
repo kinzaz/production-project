@@ -1,7 +1,7 @@
-import { Currency } from 'entities/Currency';
+import { Currency } from '@/entities/Currency';
 import { fetchProfileData } from './fetchProfileData';
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
-import { Country } from 'entities/Country';
+import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
+import { Country } from '@/entities/Country';
 import { validateProfile } from './validateProfile';
 import { updateProfileData } from './updateProfileData';
 import { ValidateProfileError } from '../types/editableProfileCardSchema';

@@ -3,11 +3,11 @@ import { Route, Routes } from 'react-router-dom';
 import {
   AppRoutesProps,
   routeConfig,
-} from 'shared/config/routeConfig/routeConfig';
-import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
-import { PageLoader } from 'widgets/PageLoader';
+} from '@/shared/config/routeConfig/routeConfig';
+import { RequireAuth } from '@/app/providers/router/ui/RequireAuth';
+import { PageLoader } from '@/widgets/PageLoader';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
+import { getUserAuthData } from '@/entities/User';
 
 export const AppRouter = memo(() => {
   const auth = useSelector(getUserAuthData);

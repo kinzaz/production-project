@@ -1,7 +1,7 @@
-import { ArticleType } from 'entities/Article/model/types/article';
+import { ArticleType } from '@/entities/Article/model/types/article';
 import { FunctionComponent } from 'react';
-import { Tabs } from 'shared/ui/Tabs';
-import { Tab } from 'shared/ui/Tabs/Tab';
+import { Tabs } from '@/shared/ui/Tabs';
+import { Tab } from '@/shared/ui/Tabs/Tab';
 
 interface ArticleTypeTabsProps {
   checkoutHandler: (type: ArticleType) => void;

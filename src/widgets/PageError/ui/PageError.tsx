@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './PageError.module.scss';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';

@@ -1,8 +1,8 @@
-import { Article, ArticleView } from 'entities/Article/model/types/article';
+import { Article, ArticleView } from '@/entities/Article/model/types/article';
 import { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
 import { ArticleListItem } from '../ArticleListItem';
 import styles from './index.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {

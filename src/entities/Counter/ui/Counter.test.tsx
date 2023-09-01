@@ -1,4 +1,4 @@
-import { componentRender } from 'shared/config/tests/componentRender/componentRender';
+import { componentRender } from '@/shared/config/tests/componentRender/componentRender';
 import { Counter } from './Counter';
 import { screen } from '@testing-library/react';
 import { userEvent } from '@storybook/testing-library';

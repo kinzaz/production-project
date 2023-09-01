@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 export const getScrollPlace = (state: StateSchema) => state.scrollPlace.scroll;
 

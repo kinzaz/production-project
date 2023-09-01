@@ -1,20 +1,20 @@
-import { useAppDispatch } from 'app/providers/StoreProvider/hooks';
-import { getAddCommentFormText } from 'features/addComment/modal/selectors/addCommentFormSelectors';
+import { useAppDispatch } from '@/app/providers/StoreProvider/hooks';
+import { getAddCommentFormText } from '@/features/addComment/modal/selectors/addCommentFormSelectors';
 import {
   addCommentFormActions,
   addCommentFormReducer,
-} from 'features/addComment/modal/slices/addCommentFormSlice';
+} from '@/features/addComment/modal/slices/addCommentFormSlice';
 import { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Button } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Button } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/Input';
 import styles from './index.module.scss';
-import { HStack } from 'shared/ui/Stack/HStack';
+import { HStack } from '@/shared/ui/Stack/HStack';
 
 export interface AddCommentPageProps {
   onSendComment: (text: string) => void;

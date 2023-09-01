@@ -1,11 +1,11 @@
 import { EditableProfileCard } from './index';
-import { componentRender } from 'shared/config/tests/componentRender/componentRender';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { profileReducer } from 'features/editableProfileCard/model/slice/ProfileSlice';
+import { componentRender } from '@/shared/config/tests/componentRender/componentRender';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { profileReducer } from '@/features/editableProfileCard/model/slice/ProfileSlice';
 import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
-import { $api } from 'shared/api/api';
+import { $api } from '@/shared/api/api';
 
 const profile = {
   age: '25',

@@ -5,7 +5,7 @@ import {
   memo,
 } from 'react';
 import styles from './index.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 type CardProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,

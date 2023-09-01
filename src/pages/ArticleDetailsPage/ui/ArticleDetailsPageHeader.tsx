@@ -1,12 +1,12 @@
 import { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Button } from 'shared/ui/Button/Button';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { Button } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData } from 'entities/Article';
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article';
-import { HStack } from 'shared/ui/Stack/HStack';
+import { getArticleDetailsData } from '@/entities/Article';
+import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article';
+import { HStack } from '@/shared/ui/Stack/HStack';
 
 export const ArticleDetailsPageHeader: FunctionComponent = () => {
   const { t } = useTranslation('article');

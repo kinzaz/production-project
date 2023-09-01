@@ -1,4 +1,4 @@
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
 import {
   FunctionComponent,
   PropsWithChildren,
@@ -6,11 +6,11 @@ import {
   useCallback,
   useEffect,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './index.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider/AnimationProvider';
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 
 interface DrawerProps {
   className?: string;

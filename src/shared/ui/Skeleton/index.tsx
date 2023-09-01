@@ -1,6 +1,6 @@
 import { CSSProperties, FunctionComponent } from 'react';
 import style from './index.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface SkeletonProps {
   height?: string | number;

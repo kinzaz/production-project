@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
 import styles from './index.module.scss';
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
 export type FlexJustify = 'start' | 'end' | 'center' | 'space-between';
 export type FlexAlign = 'start' | 'end' | 'center' | 'space-between';

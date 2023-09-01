@@ -1,35 +1,35 @@
-import { useAppDispatch } from 'app/providers/StoreProvider/hooks';
+import { useAppDispatch } from '@/app/providers/StoreProvider/hooks';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
-} from 'entities/Article/model/selectors/articleDetailsSelectors';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
+} from '@/entities/Article/model/selectors/articleDetailsSelectors';
+import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById';
+import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
 import { FunctionComponent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { Text, TextALign, TextSize } from 'shared/ui/Text/Text';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Text, TextALign, TextSize } from '@/shared/ui/Text/Text';
 import styles from './index.module.scss';
-import { Avatar } from 'shared/ui/Avatar';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import { Icon } from 'shared/ui/Icon';
+import { Avatar } from '@/shared/ui/Avatar';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import { Icon } from '@/shared/ui/Icon';
 import {
   ArticleBlock,
   ArticleBlockType,
-} from 'entities/Article/model/types/article';
+} from '@/entities/Article/model/types/article';
 import { ArticleCodeBlock } from '../ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { HStack } from 'shared/ui/Stack/HStack';
-import { VStack } from 'shared/ui/Stack/VStack';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { HStack } from '@/shared/ui/Stack/HStack';
+import { VStack } from '@/shared/ui/Stack/VStack';
 
 const reducers: ReducersList = {
   articleDetails: articleDetailsReducer,

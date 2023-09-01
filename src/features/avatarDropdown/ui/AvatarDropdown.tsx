@@ -1,15 +1,15 @@
 import { FunctionComponent, useCallback } from 'react';
 import styles from './AvatarDropdown.module.scss';
-import { Dropdown } from 'shared/ui/Popups';
-import { Avatar } from 'shared/ui/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
+import { Avatar } from '@/shared/ui/Avatar';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getUserAuthData,
   isUserAdmin,
   isUserManager,
   userActions,
-} from 'entities/User';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+} from '@/entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
 
 export const AvatarDropdown: FunctionComponent = () => {

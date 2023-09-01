@@ -2,12 +2,12 @@ import { memo } from 'react';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page';
-import { VStack } from 'shared/ui/Stack/VStack';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
+import { VStack } from '@/shared/ui/Stack/VStack';
 import { useParams } from 'react-router-dom';
-import { EditableProfileCard } from 'features/editableProfileCard';
-import { profileReducer } from 'features/editableProfileCard/model/slice/ProfileSlice';
+import { EditableProfileCard } from '@/features/editableProfileCard';
+import { profileReducer } from '@/features/editableProfileCard/model/slice/ProfileSlice';
 
 const reducers: ReducersList = {
   profile: profileReducer,

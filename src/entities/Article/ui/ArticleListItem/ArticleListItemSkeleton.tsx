@@ -1,9 +1,9 @@
 import { FunctionComponent, memo } from 'react';
 import styles from './index.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Card } from 'shared/ui/Card';
-import { Skeleton } from 'shared/ui/Skeleton';
-import { ArticleView } from 'entities/Article/model/types/article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { ArticleView } from '@/entities/Article/model/types/article';
 
 interface ArticleListItemSkeletonProps {
   view: ArticleView;

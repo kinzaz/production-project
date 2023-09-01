@@ -1,7 +1,7 @@
-import { Notifications } from 'entities/Notifications/model/types';
+import { Notifications } from '@/entities/Notifications/model/types';
 import { FunctionComponent } from 'react';
-import { Card } from 'shared/ui/Card';
-import { Text } from 'shared/ui/Text/Text';
+import { Card } from '@/shared/ui/Card';
+import { Text } from '@/shared/ui/Text/Text';
 import styles from './index.module.scss';
 
 interface NotificationItemProps {

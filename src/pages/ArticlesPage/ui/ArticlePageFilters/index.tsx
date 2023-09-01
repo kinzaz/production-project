@@ -1,32 +1,32 @@
 import {
   useAppDispatch,
   useAppSelector,
-} from 'app/providers/StoreProvider/hooks';
+} from '@/app/providers/StoreProvider/hooks';
 import {
   ArticleSortField,
   ArticleSortSelector,
   ArticleType,
   ArticleView,
-} from 'entities/Article';
-import { ArticleViewSwitcher } from 'features/SwitchArticleView';
+} from '@/entities/Article';
+import { ArticleViewSwitcher } from '@/features/SwitchArticleView';
 import {
   getArticlesOrder,
   getArticlesPageView,
   getArticlesSearch,
   getArticlesSort,
   getArticlesType,
-} from 'pages/ArticlesPage/model/selectors';
-import { articlePageSliceAction } from 'pages/ArticlesPage/model/slices/articlePageSlice';
+} from '@/pages/ArticlesPage/model/selectors';
+import { articlePageSliceAction } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
 import { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import styles from './index.module.scss';
-import { Card } from 'shared/ui/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { SortOrder } from 'shared/types';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { SortOrder } from '@/shared/types';
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
+import { ArticleTypeTabs } from '@/entities/Article/ui/ArticleTypeTabs';
 
 export const ArticlePageFilters: FunctionComponent = () => {
   const dispatch = useAppDispatch();

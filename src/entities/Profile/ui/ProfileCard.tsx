@@ -1,16 +1,16 @@
 import { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TextALign, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextALign, TextTheme } from '@/shared/ui/Text/Text';
 import styles from './ProfileCard.module.scss';
-import { Input } from 'shared/ui/Input/Input';
+import { Input } from '@/shared/ui/Input/Input';
 import { Profile } from '../model/types/profile';
-import { Loader } from 'shared/ui/Loader';
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
-import { Avatar } from 'shared/ui/Avatar';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { Country, CountrySelect } from 'entities/Country';
-import { VStack } from 'shared/ui/Stack/VStack';
-import { HStack } from 'shared/ui/Stack/HStack';
+import { Loader } from '@/shared/ui/Loader';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Country, CountrySelect } from '@/entities/Country';
+import { VStack } from '@/shared/ui/Stack/VStack';
+import { HStack } from '@/shared/ui/Stack/HStack';
 
 interface ProfileCardProps {
   data?: Profile;

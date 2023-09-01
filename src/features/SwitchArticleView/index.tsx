@@ -1,10 +1,10 @@
-import { ArticleView } from 'entities/Article';
+import { ArticleView } from '@/entities/Article';
 import { FunctionComponent } from 'react';
-import BigIcon from 'shared/assets/icons/articles-list.svg';
-import SmallIcon from 'shared/assets/icons/articles-one.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon';
+import BigIcon from '@/shared/assets/icons/articles-list.svg';
+import SmallIcon from '@/shared/assets/icons/articles-one.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon';
 import styles from './index.module.scss';
 
 interface ArticleViewSwitcherProps {

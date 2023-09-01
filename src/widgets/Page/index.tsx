@@ -5,18 +5,18 @@ import {
   UIEvent,
   useRef,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './index.module.scss';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import {
   useAppDispatch,
   useAppSelector,
-} from 'app/providers/StoreProvider/hooks';
-import { getScrollPlaceByPath, scrollPlaceActions } from 'widgets/ScrollPlace';
+} from '@/app/providers/StoreProvider/hooks';
+import { getScrollPlaceByPath, scrollPlaceActions } from '@/widgets/ScrollPlace';
 import { useLocation } from 'react-router-dom';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 
 export const Page: FunctionComponent<
   PropsWithChildren & { className?: string; onScrollEnd?: () => void }

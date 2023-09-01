@@ -1,8 +1,8 @@
 import { FunctionComponent, useCallback } from 'react';
 import styles from './index.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '../Button/Button';
-import IconCopy from 'shared/assets/icons/copy.svg';
+import IconCopy from '@/shared/assets/icons/copy.svg';
 
 interface CodeProps {
   text: string;

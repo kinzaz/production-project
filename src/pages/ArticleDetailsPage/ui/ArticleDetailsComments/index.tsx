@@ -1,16 +1,16 @@
-import { CommentList } from 'entities/Comment';
-import { AddCommentForm } from 'features/addComment';
+import { CommentList } from '@/entities/Comment';
+import { AddCommentForm } from '@/features/addComment';
 import { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import styles from '../ArticleDetailsPage.module.scss';
 import { useSelector } from 'react-redux';
-import { getArticleComments } from 'pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentsSlice';
-import { getArticleDetailsCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/comments';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle';
-import { useAppDispatch } from 'app/providers/StoreProvider/hooks';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId';
+import { getArticleComments } from '@/pages/ArticleDetailsPage/model/slices/ArticleDetailsCommentsSlice';
+import { getArticleDetailsCommentsIsLoading } from '@/pages/ArticleDetailsPage/model/selectors/comments';
+import { addCommentForArticle } from '@/pages/ArticleDetailsPage/model/services/addCommentForArticle';
+import { useAppDispatch } from '@/app/providers/StoreProvider/hooks';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { fetchCommentsByArticleId } from '@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId';
 
 export const ArticleDetailsComments: FunctionComponent<{ id: string }> = ({
   id,

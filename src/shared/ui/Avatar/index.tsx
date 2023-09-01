@@ -1,6 +1,6 @@
 import { CSSProperties, FunctionComponent, useMemo } from 'react';
 import style from './index.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface AvatarProps {
   src?: string;

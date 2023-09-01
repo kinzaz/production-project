@@ -1,26 +1,26 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'app/providers/StoreProvider/hooks';
+import { useAppDispatch } from '@/app/providers/StoreProvider/hooks';
 import { useTranslation } from 'react-i18next';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ValidateProfileError } from 'features/editableProfileCard/model/types/editableProfileCardSchema';
-import { ProfileCard } from 'entities/Profile';
-import { getProfileError } from 'features/editableProfileCard/model/selectors/getProfileError';
-import { getProfileForm } from 'features/editableProfileCard/model/selectors/getProfileForm';
-import { getProfileIsLoading } from 'features/editableProfileCard/model/selectors/getProfileIsLoading';
-import { getProfileReadonly } from 'features/editableProfileCard/model/selectors/getProfileReadonly';
-import { getProfileValidateErrors } from 'features/editableProfileCard/model/selectors/getProfileValidateErrors';
-import { fetchProfileData } from 'features/editableProfileCard/model/services/fetchProfileData';
-import { profileActions } from 'features/editableProfileCard/model/slice/ProfileSlice';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { ValidateProfileError } from '@/features/editableProfileCard/model/types/editableProfileCardSchema';
+import { ProfileCard } from '@/entities/Profile';
+import { getProfileError } from '@/features/editableProfileCard/model/selectors/getProfileError';
+import { getProfileForm } from '@/features/editableProfileCard/model/selectors/getProfileForm';
+import { getProfileIsLoading } from '@/features/editableProfileCard/model/selectors/getProfileIsLoading';
+import { getProfileReadonly } from '@/features/editableProfileCard/model/selectors/getProfileReadonly';
+import { getProfileValidateErrors } from '@/features/editableProfileCard/model/selectors/getProfileValidateErrors';
+import { fetchProfileData } from '@/features/editableProfileCard/model/services/fetchProfileData';
+import { profileActions } from '@/features/editableProfileCard/model/slice/ProfileSlice';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articlePageSliceReducer } from 'pages/ArticlesPage/model/slices/articlePageSlice';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { articlePageSliceReducer } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
 import { ProfilePageHeader } from '../EditableProfileHeader';
 
 interface EditableProfileCardProps {

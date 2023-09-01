@@ -1,13 +1,13 @@
 import { FunctionComponent, useState } from 'react';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Popover } from 'shared/ui/Popups';
-import NotificationIcon from 'shared/assets/icons/notification.svg';
-import { Icon } from 'shared/ui/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Popover } from '@/shared/ui/Popups';
+import NotificationIcon from '@/shared/assets/icons/notification.svg';
+import { Icon } from '@/shared/ui/Icon';
 import styles from './NotificationButton.module.scss';
-import { NotificationList } from 'entities/Notifications';
-import { Drawer } from 'shared/ui/Drawer';
+import { NotificationList } from '@/entities/Notifications';
+import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider/AnimationProvider';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 
 export const NotificationButton: FunctionComponent = () => {
   const [isOpen, setIsOpen] = useState(false);

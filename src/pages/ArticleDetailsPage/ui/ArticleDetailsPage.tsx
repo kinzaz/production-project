@@ -1,18 +1,18 @@
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails } from '@/entities/Article';
 import { FunctionComponent, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import styles from './ArticleDetailsPage.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
 import { articleDetailsPageReducer } from '../model/slices';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
-import { VStack } from 'shared/ui/Stack/VStack';
-import { ArticleRecomendationsList } from 'features/articleRecomendationsList';
+import { VStack } from '@/shared/ui/Stack/VStack';
+import { ArticleRecomendationsList } from '@/features/articleRecomendationsList';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 const reducers: ReducersList = {

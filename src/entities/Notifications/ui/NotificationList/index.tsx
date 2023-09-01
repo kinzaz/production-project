@@ -1,10 +1,10 @@
-import { useNotificationsList } from 'entities/Notifications/api/NotificationsApi';
+import { useNotificationsList } from '@/entities/Notifications/api/NotificationsApi';
 import { FunctionComponent } from 'react';
-import { VStack } from 'shared/ui/Stack/VStack';
+import { VStack } from '@/shared/ui/Stack/VStack';
 import { NotificationItem } from '../NotificationItem';
 import styles from './index.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Skeleton } from 'shared/ui/Skeleton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 export const NotificationList: FunctionComponent<{ className?: string }> = ({
   className,
