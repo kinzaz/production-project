@@ -44,15 +44,15 @@ export function buildPlugins({
         mode: 'write-references',
       },
     }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ];
 
   if (isDev) {
     plugins.push(
       new webpack.HotModuleReplacementPlugin(),
-      new ReactRefreshWebpackPlugin(),
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-      })
+      new ReactRefreshWebpackPlugin()
     );
   }
 
