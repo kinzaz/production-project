@@ -7,7 +7,6 @@ import styles from './NotificationButton.module.scss';
 import { NotificationList } from '@/entities/Notifications';
 import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 
 export const NotificationButton: FunctionComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,11 +26,9 @@ export const NotificationButton: FunctionComponent = () => {
       </BrowserView>
       <MobileView>
         {trigger}
-        <AnimationProvider>
-          <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            <NotificationList />
-          </Drawer>
-        </AnimationProvider>
+        <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <NotificationList />
+        </Drawer>
       </MobileView>
     </div>
   );

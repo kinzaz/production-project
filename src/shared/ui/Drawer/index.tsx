@@ -2,7 +2,6 @@ import { useTheme } from '@/app/providers/ThemeProvider';
 import {
   FunctionComponent,
   PropsWithChildren,
-  memo,
   useCallback,
   useEffect,
 } from 'react';
@@ -10,7 +9,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './index.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
+import {
+  AnimationProvider,
+  useAnimationLibs,
+} from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 
 interface DrawerProps {
   className?: string;
@@ -105,10 +107,22 @@ export const DrawerContent: FunctionComponent<PropsWithChildren<DrawerProps>> =
     );
   };
 
-export const Drawer = memo<PropsWithChildren<DrawerProps>>((props) => {
+const DrawerAsync: FunctionComponent<PropsWithChildren<DrawerProps>> = (
+  props
+) => {
   const { isLoaded } = useAnimationLibs();
 
   if (!isLoaded) return null;
 
   return <DrawerContent {...props} />;
-});
+};
+
+export const Drawer: FunctionComponent<PropsWithChildren<DrawerProps>> = (
+  props
+) => {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props} />
+    </AnimationProvider>
+  );
+};
