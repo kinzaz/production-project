@@ -19,7 +19,7 @@ export const StarRating: FunctionComponent<StarRatingProps> = ({
   selectedStars,
   size,
 }) => {
-  const [currentStarCount, setCurrentStarCount] = useState(0);
+  const [currentStarCount, setCurrentStarCount] = useState(selectedStars || 0);
   const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
   const onHover = (starCount: number) => () => {

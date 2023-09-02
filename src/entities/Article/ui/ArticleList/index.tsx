@@ -39,20 +39,6 @@ export const ArticleList: FunctionComponent<ArticleListProps> = ({
     );
   };
 
-  if (!isLoading && !articles.length) {
-    return (
-      <div
-        className={classNames(styles.ArticleList, {}, [
-          className,
-          styles[view],
-        ])}
-      >
-        Статьи нет.
-      </div>
-    );
-  }
-  console.log('articles', articles);
-
   return (
     <div
       className={classNames(styles.ArticleList, {}, [className, styles[view]])}

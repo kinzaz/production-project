@@ -14,6 +14,7 @@ import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 import { VStack } from '@/shared/ui/Stack/VStack';
 import { ArticleRecomendationsList } from '@/features/articleRecomendationsList';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
+import { ArticleRating } from '@/features/articleRating';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -33,6 +34,7 @@ const ArticleDetailsPage: FunctionComponent = () => {
         <VStack gap="16">
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
+          <ArticleRating articleId={id} />
           <ArticleRecomendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>
