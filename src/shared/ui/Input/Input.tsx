@@ -15,7 +15,7 @@ type HTMLInputProps = Omit<
 
 interface InputProps extends HTMLInputProps {
   value?: string | number;
-  onChange?(value: string | number): void;
+  onChange?(value: unknown): void;
   authfocus?: boolean;
   readonly?: boolean;
 }
