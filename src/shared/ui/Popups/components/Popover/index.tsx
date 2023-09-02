@@ -22,7 +22,7 @@ export const Popover: FunctionComponent<PropsWithChildren<PopoverProps>> = ({
 
   return (
     <HPopover className={classNames(styles.Popover, {}, [className])}>
-      <HPopover.Button className={popupStyles.trigger}>
+      <HPopover.Button as="div" className={popupStyles.trigger}>
         {trigger}
       </HPopover.Button>
 

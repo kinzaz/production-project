@@ -60,7 +60,7 @@ export const Dropdown: FunctionComponent<DropDownProps> = ({
             );
           }
           return (
-            <Menu.Item disabled={item.disabled} key={item.href} as={Fragment}>
+            <Menu.Item disabled={item.disabled} key={i} as={Fragment}>
               {content}
             </Menu.Item>
           );
