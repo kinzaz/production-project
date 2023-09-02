@@ -1,7 +1,7 @@
 import { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/app/providers/router/config/routeConfig';
 import { Button } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from '@/entities/Article';

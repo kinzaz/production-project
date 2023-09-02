@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from './types';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/app/providers/router/config/routeConfig';
 import MainIcon from '@/shared/assets/icons/home.svg';
 import AboutIcon from '@/shared/assets/icons/about.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
