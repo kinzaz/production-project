@@ -1,4 +1,4 @@
-import { useTheme } from '@/app/providers/ThemeProvider';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
 import {
   FunctionComponent,
   PropsWithChildren,

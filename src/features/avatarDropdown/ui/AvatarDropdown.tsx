@@ -9,7 +9,7 @@ import {
   isUserManager,
   userActions,
 } from '@/entities/User';
-import { RoutePath } from '@/app/providers/router/config/routeConfig';
+import { RoutePath } from '@/shared/consts/router';
 import { useTranslation } from 'react-i18next';
 
 export const AvatarDropdown: FunctionComponent = () => {
