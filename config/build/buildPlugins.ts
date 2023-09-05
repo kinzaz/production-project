@@ -19,17 +19,10 @@ export function buildPlugins({
       template: paths.html,
     }),
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
-    }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
-    }),
-    new CopyPlugin({
-      patterns: [{ from: paths.locales, to: paths.buildLocales }],
     }),
     new CircularDependencyPlugin({
       exclude: /a\.js|node_modules/,
@@ -53,6 +46,18 @@ export function buildPlugins({
     plugins.push(
       new webpack.HotModuleReplacementPlugin(),
       new ReactRefreshWebpackPlugin()
+    );
+  }
+
+  if (!isDev) {
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css',
+      }),
+      new CopyPlugin({
+        patterns: [{ from: paths.locales, to: paths.buildLocales }],
+      })
     );
   }
 
