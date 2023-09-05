@@ -2,12 +2,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/app/providers/StoreProvider/hooks';
-import {
-  ArticleSortField,
-  ArticleSortSelector,
-  ArticleType,
-  ArticleView,
-} from '@/entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleViewSwitcher } from '@/features/SwitchArticleView';
 import {
   getArticlesOrder,
@@ -26,7 +21,8 @@ import { Input } from '@/shared/ui/Input/Input';
 import { SortOrder } from '@/shared/types';
 import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { ArticleTypeTabs } from '@/entities/Article/ui/ArticleTypeTabs';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 
 export const ArticlePageFilters: FunctionComponent = () => {
   const dispatch = useAppDispatch();
