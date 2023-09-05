@@ -1,12 +1,12 @@
 import { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from '@/shared/consts/router';
 import { Button } from '@/shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article';
 import { HStack } from '@/shared/ui/Stack/HStack';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/consts/router';
 
 export const ArticleDetailsPageHeader: FunctionComponent = () => {
   const { t } = useTranslation('article');
@@ -15,11 +15,11 @@ export const ArticleDetailsPageHeader: FunctionComponent = () => {
   const canEdit = useSelector(getCanEditArticle);
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles);
+    navigate(getRouteArticles());
   }, [navigate]);
 
   const onEditArticle = useCallback(() => {
-    navigate(RoutePath.articles + '/' + article?.id + '/edit');
+    navigate(getRouteArticleEdit(article?.id || ''));
   }, [navigate, article?.id]);
 
   return (

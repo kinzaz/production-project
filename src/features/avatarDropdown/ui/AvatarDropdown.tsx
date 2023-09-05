@@ -9,8 +9,8 @@ import {
   isUserManager,
   userActions,
 } from '@/entities/User';
-import { RoutePath } from '@/shared/consts/router';
 import { useTranslation } from 'react-i18next';
+import { getRouteAdmin, getRouteProfile } from '@/shared/consts/router';
 
 export const AvatarDropdown: FunctionComponent = () => {
   const dispatch = useDispatch();
@@ -36,13 +36,13 @@ export const AvatarDropdown: FunctionComponent = () => {
           ? [
               {
                 content: t('Админка'),
-                href: RoutePath.admin,
+                href: getRouteAdmin(),
               },
             ]
           : []),
         {
           content: t('Профиль'),
-          href: RoutePath.profile + authData.id,
+          href: getRouteProfile(authData.id),
         },
         {
           content: t('Выйти'),

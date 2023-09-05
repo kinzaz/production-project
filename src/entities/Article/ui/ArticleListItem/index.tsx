@@ -15,8 +15,8 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleTextBlock } from '../ArticleTextBlock';
-import { RoutePath } from '@/shared/consts/router';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { getRouteArticle } from '@/shared/consts/router';
 
 interface ArticleListItemProps {
   article: Article;
@@ -68,7 +68,7 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
             <ArticleTextBlock block={textBlock} className={styles.textBlock} />
           )}
           <div className={styles.footer}>
-            <AppLink to={RoutePath.article + article.id} target={target}>
+            <AppLink to={getRouteArticle(article.id)} target={target}>
               <Button>{t('Читать далее')}</Button>
             </AppLink>
             {views}
@@ -81,7 +81,7 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
   return (
     <AppLink
       target={target}
-      to={RoutePath.article + article.id}
+      to={getRouteArticle(article.id)}
       className={classNames(styles.ArticleListItem, {}, [
         className,
         styles[view],
