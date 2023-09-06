@@ -17,6 +17,8 @@ import { useTranslation } from 'react-i18next';
 import { ArticleTextBlock } from '../ArticleTextBlock';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { getRouteArticle } from '@/shared/consts/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
   article: Article;
@@ -63,7 +65,12 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
           </div>
           <Text text={article.title} className={styles.title} />
           {types}
-          <img src={article.img} className={styles.img} alt={article.title} />
+          <AppImage
+            fallback={<Skeleton width={'100%'} height={250} />}
+            src={article.img}
+            className={styles.img}
+            alt={article.title}
+          />
           {textBlock && (
             <ArticleTextBlock block={textBlock} className={styles.textBlock} />
           )}
@@ -89,7 +96,12 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
     >
       <Card>
         <div className={styles.imageWrapper}>
-          <img src={article.img} alt={article.title} className={styles.img} />
+          <AppImage
+            fallback={<Skeleton width={200} height={200} />}
+            src={article.img}
+            alt={article.title}
+            className={styles.img}
+          />
           <Text text={article.createdAt} className={styles.date} />
         </div>
         <div className={styles.infoWrapper}>

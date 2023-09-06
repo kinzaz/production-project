@@ -49,7 +49,7 @@ export const AvatarDropdown: FunctionComponent = () => {
           onClicK: onLogout,
         },
       ]}
-      trigger={<Avatar size={30} src={authData.avatar} />}
+      trigger={<Avatar size={30} src={authData.avatar} fallbackInverted />}
     />
   );
 };
