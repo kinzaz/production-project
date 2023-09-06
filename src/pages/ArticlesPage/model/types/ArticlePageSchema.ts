@@ -4,7 +4,7 @@ import {
   ArticleSortField,
   ArticleType,
 } from '@/entities/Article/model/types/article';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 
 export interface ArticlesPageSchema extends EntityState<Article> {
   isLoading?: boolean;

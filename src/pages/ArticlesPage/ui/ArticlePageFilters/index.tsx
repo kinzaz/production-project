@@ -18,7 +18,7 @@ import { useSelector } from 'react-redux';
 import styles from './index.module.scss';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input/Input';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';

@@ -18,7 +18,7 @@ const ProfilePage = memo(() => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <Page>
+      <Page data-testid="ProfilePage">
         <VStack gap="16">{id && <EditableProfileCard id={id} />}</VStack>
       </Page>
     </DynamicModuleLoader>
