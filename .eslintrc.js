@@ -48,6 +48,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'react/prop-types': 'off',
     'kinzaz-test-plugin/path-checker': 'off',
+    '@typescript-eslint/no-namespace': 'off',
   },
   globals: {
     __IS_DEV__: true,

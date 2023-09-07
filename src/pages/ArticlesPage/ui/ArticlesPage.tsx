@@ -21,7 +21,7 @@ const ArticlesPage: FunctionComponent = () => {
   }, [dispatch]);
 
   return (
-    <Page onScrollEnd={onLoadNextPart}>
+    <Page data-testid='ArticlesPage' onScrollEnd={onLoadNextPart}>
       <ArticlePageFilters />
       <ArticleInfiniteList />
     </Page>

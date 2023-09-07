@@ -16,6 +16,13 @@
       "@/*": ["./src/*"]
     }
   },
+  "exclude": [
+    "./cypress.config.ts",
+    "node_modules",
+    "cypress",
+    "**/*.cy.tsx",
+    "**/*.cy.tsx"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

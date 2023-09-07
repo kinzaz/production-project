@@ -54,10 +54,10 @@ export const Page: FunctionComponent<PropsWithChildren<PageProps>> = (
 
   return (
     <main
+      data-testid={props['data-testid'] ?? 'Page'}
       ref={wrapperRef}
       className={classNames(styles.Page, {}, [props.className])}
       onScroll={onScroll}
-      data-testid={props['data-testid'] ?? 'Page'}
     >
       {props.children}
       {props.onScrollEnd && <div className={styles.trigger} ref={triggerRef} />}

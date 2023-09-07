@@ -10,8 +10,8 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   };
 
   const cssLoader = buildCssLoader(isDev);
-  const codeBabelLoader = buildBabelLoader(false);
-  const tsxBabelLoader = buildBabelLoader(true);
+  const codeBabelLoader = buildBabelLoader(false, isDev);
+  const tsxBabelLoader = buildBabelLoader(true, isDev);
 
   // Если не используем тайпскрипт - нужен babel-loader
   // const typescriptLoader = {
