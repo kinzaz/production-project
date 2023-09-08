@@ -59,12 +59,17 @@ export const RatingCard: FunctionComponent<RatingCardProps> = ({
   const modalContent = (
     <>
       <Text title={feedbackTitle} align={TextALign.CENTER} />
-      <Input value={feedback} onChange={setFeedback} placeholder="Ваш отзыв" />
+      <Input
+        data-testid="RatingCard.Input"
+        value={feedback}
+        onChange={setFeedback}
+        placeholder="Ваш отзыв"
+      />
     </>
   );
 
   return (
-    <Card className={classNames('', {}, [className])}>
+    <Card data-testid="RatingCard" className={classNames('', {}, [className])}>
       <VStack align="center" gap="8">
         <Text
           title={starsCount ? 'Спасибо за оценку' : title}
@@ -81,10 +86,16 @@ export const RatingCard: FunctionComponent<RatingCardProps> = ({
           <VStack gap="32">
             {modalContent}
             <HStack gap="16" justify="end">
-              <Button onClick={cancelHandle} theme={ButtonTheme.OUTLINE_RED}>
+              <Button
+                data-testid={'RatingCard.Close'}
+                onClick={cancelHandle}
+                theme={ButtonTheme.OUTLINE_RED}
+              >
                 Закрыть
               </Button>
-              <Button onClick={acceptHandle}>Отправить</Button>
+              <Button data-testid={'RatingCard.Send'} onClick={acceptHandle}>
+                Отправить
+              </Button>
             </HStack>
           </VStack>
         </Modal>

@@ -100,7 +100,7 @@ export const ArticleDetails: FunctionComponent<ArticleDetailsProps> = memo(
           <HStack justify="center" className={styles.avatarWrapper}>
             <Avatar size={200} src={article?.img} />
           </HStack>
-          <VStack gap="4">
+          <VStack gap="4" data-testid="ArticleDetails.Info">
             <Text
               className={styles.title}
               title={article?.title}

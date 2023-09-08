@@ -73,6 +73,7 @@ export const Input = memo(
         )}
         <div className={styles.caretWrapper}>
           <input
+            {...props}
             className={styles.input}
             onChange={onChangeHandler}
             type={type}
@@ -82,7 +83,6 @@ export const Input = memo(
             onSelect={onSelect}
             ref={ref}
             readOnly={readonly}
-            {...props}
           />
           {isCaretVisible && (
             <span

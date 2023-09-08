@@ -7,6 +7,15 @@ import { ArticleInfiniteList } from './ArticleInfiniteList';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { initArticlesPage } from '../model/services/initArticlesPage';
 import { useSearchParams } from 'react-router-dom';
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { articlePageSliceReducer } from '../model/slices/articlePageSlice';
+
+const reducers: ReducersList = {
+  articlesPage: articlePageSliceReducer,
+};
 
 const ArticlesPage: FunctionComponent = () => {
   const dispatch = useAppDispatch();
@@ -21,10 +30,12 @@ const ArticlesPage: FunctionComponent = () => {
   }, [dispatch]);
 
   return (
-    <Page data-testid='ArticlesPage' onScrollEnd={onLoadNextPart}>
-      <ArticlePageFilters />
-      <ArticleInfiniteList />
-    </Page>
+    <DynamicModuleLoader reducers={reducers}>
+      <Page data-testid="ArticlePage" onScrollEnd={onLoadNextPart}>
+        <ArticlePageFilters />
+        <ArticleInfiniteList />
+      </Page>
+    </DynamicModuleLoader>
   );
 };
 

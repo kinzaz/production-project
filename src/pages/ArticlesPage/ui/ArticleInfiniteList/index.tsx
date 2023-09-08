@@ -7,10 +7,11 @@ import {
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '@/pages/ArticlesPage/model/selectors';
+import { useAppSelector } from '@/app/providers/StoreProvider/hooks';
 
 export const ArticleInfiniteList: FunctionComponent = () => {
-  const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlesPageIsLoading);
+  const articles = useAppSelector(getArticles.selectAll);
+  const isLoading = useAppSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
 
   return (

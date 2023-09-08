@@ -60,6 +60,7 @@ export const Flex: FunctionComponent<PropsWithChildren<FlexProps>> = ({
   direction = 'row',
   gap,
   max,
+  ...props
 }) => {
   const classes = [
     className,
@@ -72,6 +73,8 @@ export const Flex: FunctionComponent<PropsWithChildren<FlexProps>> = ({
     [styles.max]: max,
   };
   return (
-    <div className={classNames(styles.Flex, mods, classes)}>{children}</div>
+    <div {...props} className={classNames(styles.Flex, mods, classes)}>
+      {children}
+    </div>
   );
 };

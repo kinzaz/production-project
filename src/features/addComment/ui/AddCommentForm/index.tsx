@@ -45,14 +45,21 @@ const AddCommentForm: FunctionComponent<AddCommentPageProps> = ({
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <HStack justify="between" className={styles.AddCommentForm}>
+      <HStack
+        data-testid="AddCommentForm"
+        justify="between"
+        className={styles.AddCommentForm}
+      >
         <Input
+          data-testid="AddCommentForm.Input"
           className={styles.input}
           value={text}
           onChange={onCommentTextChange}
           placeholder={t('Введите текст комментария')}
         />
-        <Button onClick={onSendHandler}>{t('Отправить')}</Button>
+        <Button data-testid="AddCommentForm.Button" onClick={onSendHandler}>
+          {t('Отправить')}
+        </Button>
       </HStack>
     </DynamicModuleLoader>
   );

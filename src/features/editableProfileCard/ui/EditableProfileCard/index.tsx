@@ -16,21 +16,12 @@ import { getProfileReadonly } from '@/features/editableProfileCard/model/selecto
 import { getProfileValidateErrors } from '@/features/editableProfileCard/model/selectors/getProfileValidateErrors';
 import { fetchProfileData } from '@/features/editableProfileCard/model/services/fetchProfileData';
 import { profileActions } from '@/features/editableProfileCard/model/slice/ProfileSlice';
-import {
-  DynamicModuleLoader,
-  ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articlePageSliceReducer } from '@/pages/ArticlesPage/model/slices/articlePageSlice';
 import { ProfilePageHeader } from '../EditableProfileHeader';
 
 interface EditableProfileCardProps {
   className?: string;
   id: string;
 }
-
-const reducers: ReducersList = {
-  articlesPage: articlePageSliceReducer,
-};
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const { className, id } = props;
@@ -117,33 +108,31 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   );
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames('', {}, [className])}>
-        <ProfilePageHeader />
-        {validateErrors?.length &&
-          validateErrors.map((err, index: number) => (
-            <Text
-              theme={TextTheme.ERROR}
-              title={validateErrorTranslates[err]}
-              key={index}
-              data-testid={'EditableProfileCard.Error'}
-            />
-          ))}
-        <ProfileCard
-          data={form}
-          isLoading={isLoading}
-          error={error}
-          readonly={readonly}
-          onChangeFirstname={onChangeFirstname}
-          onChangeLastname={onChangeLastname}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeAvatar={onChangeAvatar}
-          onChangeUsername={onChangeUsername}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-        />
-      </div>
-    </DynamicModuleLoader>
+    <div className={classNames('', {}, [className])}>
+      <ProfilePageHeader />
+      {validateErrors?.length &&
+        validateErrors.map((err, index: number) => (
+          <Text
+            theme={TextTheme.ERROR}
+            title={validateErrorTranslates[err]}
+            key={index}
+            data-testid={'EditableProfileCard.Error'}
+          />
+        ))}
+      <ProfileCard
+        data={form}
+        isLoading={isLoading}
+        error={error}
+        readonly={readonly}
+        onChangeFirstname={onChangeFirstname}
+        onChangeLastname={onChangeLastname}
+        onChangeAge={onChangeAge}
+        onChangeCity={onChangeCity}
+        onChangeAvatar={onChangeAvatar}
+        onChangeUsername={onChangeUsername}
+        onChangeCurrency={onChangeCurrency}
+        onChangeCountry={onChangeCountry}
+      />
+    </div>
   );
 });

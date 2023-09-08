@@ -61,6 +61,8 @@ export const StarRating: FunctionComponent<StarRatingProps> = ({
           onMouseLeave={onLeave}
           onMouseEnter={onHover(star)}
           onClick={onClickStars(star)}
+          data-testid={'StarRating.' + star}
+          data-selected={currentStarCount >= star}
         />
       ))}
     </div>

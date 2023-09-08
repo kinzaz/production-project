@@ -41,6 +41,7 @@ export const ArticleList: FunctionComponent<ArticleListProps> = ({
 
   return (
     <div
+      data-testid="ArticleList"
       className={classNames(styles.ArticleList, {}, [className, styles[view]])}
     >
       {articles.length > 0 ? articles.map(renderArticleList) : null}

@@ -52,6 +52,7 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
 
     return (
       <div
+        data-testid="ArticleListItem"
         className={classNames(styles.ArticleListItem, {}, [
           className,
           styles[view],
@@ -87,6 +88,7 @@ export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
 
   return (
     <AppLink
+      data-testid="ArticleListItem"
       target={target}
       to={getRouteArticle(article.id)}
       className={classNames(styles.ArticleListItem, {}, [

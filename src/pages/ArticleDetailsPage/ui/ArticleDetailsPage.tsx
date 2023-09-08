@@ -30,7 +30,10 @@ const ArticleDetailsPage: FunctionComponent = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <Page className={classNames(styles.ArticleDetailsPage, {}, [])}>
+      <Page
+        data-testid="ArticleDetailsPage"
+        className={classNames(styles.ArticleDetailsPage, {}, [])}
+      >
         <VStack gap="16">
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />

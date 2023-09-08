@@ -4,28 +4,36 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://distribution.faceit-cdn.net/images/d25e4f2a-49e1-4c8c-9c30-9871cc6abbca.jpeg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671765_4-mykaleidoscope-ru-p-zloi-khaker-vkontakte-4.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671765_4-mykaleidoscope-ru-p-zloi-khaker-vkontakte-4.jpg"
     },
     {
       "id": "4",
       "username": "testuser",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671765_4-mykaleidoscope-ru-p-zloi-khaker-vkontakte-4.jpg"
     }
   ],
@@ -84,6 +92,17 @@
       "city": "Москва",
       "username": "Ivan",
       "avatar": "https://sun9-24.userapi.com/impf/c638124/v638124331/19985/whWFLRGBfew.jpg?size=320x213&quality=96&sign=f3e3461decc86ce12bfdfee3b7818147&c_uniq_tag=Z-F1txANKlGWsvRS-2klu0jpYjBIrh5TQ478MQ7rFYs&type=album"
+    },
+    {
+      "id": "4",
+      "first": "admin",
+      "lastname": "test",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Россия",
+      "city": "Москва",
+      "username": "test",
+      "avatar": "https://sun9-24.userapi.com/impf/c638124/v638124331/19985/whWFLRGBfew.jpg?size=320x213&quality=96&sign=f3e3461decc86ce12bfdfee3b7818147&c_uniq_tag=Z-F1txANKlGWsvRS-2klu0jpYjBIrh5TQ478MQ7rFYs&type=album"
     }
   ],
   "articles": [
@@ -95,7 +114,9 @@
       "views": 10222,
       "createdAt": "26.02.2021",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -165,7 +186,9 @@
       "views": 1072,
       "createdAt": "26.02.2012",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -235,7 +258,9 @@
       "views": 10221,
       "createdAt": "26.02.2010",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -305,7 +330,9 @@
       "views": 102211,
       "createdAt": "26.02.2024",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -375,7 +402,9 @@
       "views": 2022,
       "createdAt": "26.02.2025",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -445,7 +474,9 @@
       "views": 10242,
       "createdAt": "26.02.2020",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -515,7 +546,9 @@
       "views": 5022,
       "createdAt": "26.09.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -585,7 +618,9 @@
       "views": 11022,
       "createdAt": "26.12.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -655,7 +690,9 @@
       "views": 10022,
       "createdAt": "26.01.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -725,7 +762,9 @@
       "views": 7022,
       "createdAt": "26.01.2012",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -795,7 +834,9 @@
       "views": 522,
       "createdAt": "21.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",

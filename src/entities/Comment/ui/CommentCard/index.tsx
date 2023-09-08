@@ -19,7 +19,10 @@ export const CommentCard: FunctionComponent<CommentCardProps> = memo(
   ({ comment, className, isLoading }) => {
     if (isLoading) {
       return (
-        <div className={classNames(styles.CommentCard, {}, [className])}>
+        <div
+          data-testid="CommentCard.Loadings"
+          className={classNames(styles.CommentCard, {}, [className])}
+        >
           <div className={styles.header}>
             <Skeleton width={30} height={30} border="50%" />
             <Skeleton width={100} height={16} className={styles.username} />
@@ -31,6 +34,7 @@ export const CommentCard: FunctionComponent<CommentCardProps> = memo(
 
     return (
       <VStack
+        data-testid="CommentCard.Content"
         gap="8"
         className={classNames(styles.CommentCard, {}, [className])}
       >
