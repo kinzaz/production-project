@@ -3,7 +3,8 @@
     "target": "es5",
     "lib": ["es5", "dom"],
     "types": ["cypress", "node"],
+    "jsx": "react-jsx",
     "allowJs": true
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }
