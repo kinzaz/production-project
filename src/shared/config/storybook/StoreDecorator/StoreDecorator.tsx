@@ -8,22 +8,22 @@ import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slic
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
-  loginForm: loginReducer,
-  profile: profileReducer,
-  articleDetails: articleDetailsReducer,
-  addCommentForm: addCommentFormReducer,
-  articleDetailsPage: articleDetailsPageReducer,
+    loginForm: loginReducer,
+    profile: profileReducer,
+    articleDetails: articleDetailsReducer,
+    addCommentForm: addCommentFormReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 export const StoreDecorator =
-  (store: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
-  (StoryComponent: Story) => {
-    return (
-      <StoreProvider
-        initialState={store}
-        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-      >
-        <StoryComponent />
-      </StoreProvider>
-    );
-  };
+    (store: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
+    (StoryComponent: Story) => {
+        return (
+            <StoreProvider
+                initialState={store}
+                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+            >
+                <StoryComponent />
+            </StoreProvider>
+        );
+    };

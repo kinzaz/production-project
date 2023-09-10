@@ -1,31 +1,31 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "jsx": "react-jsx",
-    "strict": true,
-    "allowJs": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "exclude": [
-    "./cypress.config.ts",
-    "node_modules",
-    "cypress",
-    "**/*.cy.tsx",
-    "**/*.cy.tsx"
-  ],
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "es5",
+        "jsx": "react-jsx",
+        "strict": true,
+        "allowJs": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "isolatedModules": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "exclude": [
+        "./cypress.config.ts",
+        "node_modules",
+        "cypress",
+        "**/*.cy.tsx",
+        "**/*.cy.tsx"
+    ],
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
     }
-  }
 }

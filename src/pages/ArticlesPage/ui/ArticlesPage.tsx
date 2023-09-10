@@ -8,35 +8,35 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { initArticlesPage } from '../model/services/initArticlesPage';
 import { useSearchParams } from 'react-router-dom';
 import {
-  DynamicModuleLoader,
-  ReducersList,
+    DynamicModuleLoader,
+    ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articlePageSliceReducer } from '../model/slices/articlePageSlice';
 
 const reducers: ReducersList = {
-  articlesPage: articlePageSliceReducer,
+    articlesPage: articlePageSliceReducer,
 };
 
 const ArticlesPage: FunctionComponent = () => {
-  const dispatch = useAppDispatch();
-  const [searchParams] = useSearchParams();
+    const dispatch = useAppDispatch();
+    const [searchParams] = useSearchParams();
 
-  useInitialEffect(() => {
-    dispatch(initArticlesPage(searchParams));
-  });
+    useInitialEffect(() => {
+        dispatch(initArticlesPage(searchParams));
+    });
 
-  const onLoadNextPart = useCallback(() => {
-    dispatch(fetchNewArticlesPage());
-  }, [dispatch]);
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNewArticlesPage());
+    }, [dispatch]);
 
-  return (
-    <DynamicModuleLoader reducers={reducers}>
-      <Page data-testid="ArticlePage" onScrollEnd={onLoadNextPart}>
-        <ArticlePageFilters />
-        <ArticleInfiniteList />
-      </Page>
-    </DynamicModuleLoader>
-  );
+    return (
+        <DynamicModuleLoader reducers={reducers}>
+            <Page data-testid="ArticlePage" onScrollEnd={onLoadNextPart}>
+                <ArticlePageFilters />
+                <ArticleInfiniteList />
+            </Page>
+        </DynamicModuleLoader>
+    );
 };
 
 export default memo(ArticlesPage);

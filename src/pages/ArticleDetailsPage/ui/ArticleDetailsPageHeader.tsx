@@ -9,23 +9,25 @@ import { HStack } from '@/shared/ui/Stack/HStack';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/consts/router';
 
 export const ArticleDetailsPageHeader: FunctionComponent = () => {
-  const { t } = useTranslation('article');
-  const navigate = useNavigate();
-  const article = useSelector(getArticleDetailsData);
-  const canEdit = useSelector(getCanEditArticle);
+    const { t } = useTranslation('article');
+    const navigate = useNavigate();
+    const article = useSelector(getArticleDetailsData);
+    const canEdit = useSelector(getCanEditArticle);
 
-  const onBackToList = useCallback(() => {
-    navigate(getRouteArticles());
-  }, [navigate]);
+    const onBackToList = useCallback(() => {
+        navigate(getRouteArticles());
+    }, [navigate]);
 
-  const onEditArticle = useCallback(() => {
-    navigate(getRouteArticleEdit(article?.id || ''));
-  }, [navigate, article?.id]);
+    const onEditArticle = useCallback(() => {
+        navigate(getRouteArticleEdit(article?.id || ''));
+    }, [navigate, article?.id]);
 
-  return (
-    <HStack justify="between">
-      <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
-      {canEdit && <Button onClick={onEditArticle}>{t('Редактировать')}</Button>}
-    </HStack>
-  );
+    return (
+        <HStack justify="between">
+            <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
+            {canEdit && (
+                <Button onClick={onEditArticle}>{t('Редактировать')}</Button>
+            )}
+        </HStack>
+    );
 };

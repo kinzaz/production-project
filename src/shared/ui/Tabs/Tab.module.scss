@@ -1,50 +1,50 @@
 .tab__label {
-  user-select: none;
-  padding: 10px;
-  border: 1px solid var(--primary-color);
-  transition-duration: 300ms;
-  transition-property: box-shadow, background-color;
-  color: var(--primary-color);
+    user-select: none;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    transition-duration: 300ms;
+    transition-property: box-shadow, background-color;
+    color: var(--primary-color);
 
-  &:hover:not(:disabled) {
-    box-shadow: 1px 6px 15px rgba(0 0 0 / 30%);
-  }
+    &:hover:not(:disabled) {
+        box-shadow: 1px 6px 15px rgba(0 0 0 / 30%);
+    }
 }
 
 .tab {
-  cursor: pointer;
-  display: contents;
+    cursor: pointer;
+    display: contents;
 
-  &:first-child .tab__label {
-    border-radius: 5px 0 0 5px;
-  }
+    &:first-child .tab__label {
+        border-radius: 5px 0 0 5px;
+    }
 
-  &:not(:first-child) .tab__label {
-    border-left: none;
-  }
+    &:not(:first-child) .tab__label {
+        border-left: none;
+    }
 
-  &:last-child .tab__label {
-    border-radius: 0 5px 5px 0;
-  }
+    &:last-child .tab__label {
+        border-radius: 0 5px 5px 0;
+    }
 }
 
 .tab__hidden-controller {
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
 
-  &:disabled {
-    opacity: 0.66;
-    cursor: not-allowed;
-    user-select: none;
-  }
+    &:disabled {
+        opacity: 0.66;
+        cursor: not-allowed;
+        user-select: none;
+    }
 
-  &:checked ~ .tab__label {
-    box-shadow: none !important;
-    background-color: var(--card-bg);
-  }
+    &:checked ~ .tab__label {
+        box-shadow: none !important;
+        background-color: var(--card-bg);
+    }
 
-  &:focus-visible ~ .tab__label {
-    border: 1.25px solid #ffb13b;
-  }
+    &:focus-visible ~ .tab__label {
+        border: 1.25px solid #ffb13b;
+    }
 }

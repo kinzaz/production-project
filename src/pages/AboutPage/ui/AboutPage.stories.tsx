@@ -5,11 +5,11 @@ import AboutPage from './AboutPage';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
 export default {
-  title: 'pages/AboutPage',
-  component: AboutPage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'pages/AboutPage',
+    component: AboutPage,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof AboutPage>;
 
 const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;

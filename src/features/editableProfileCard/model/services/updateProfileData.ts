@@ -6,26 +6,29 @@ import { ValidateProfileError } from '../types/editableProfileCardSchema';
 import { Profile } from '@/entities/Profile';
 
 export const updateProfileData = createAsyncThunk<
-  Profile,
-  string,
-  ThunkConfig<ValidateProfileError[]>
+    Profile,
+    string,
+    ThunkConfig<ValidateProfileError[]>
 >(
-  'profile/updateProfileData',
-  async (id, { extra, rejectWithValue, getState }) => {
-    const formData = getProfileForm(getState());
-    const errors = validateProfile(formData);
+    'profile/updateProfileData',
+    async (id, { extra, rejectWithValue, getState }) => {
+        const formData = getProfileForm(getState());
+        const errors = validateProfile(formData);
 
-    if (errors.length) {
-      return rejectWithValue(errors);
-    }
+        if (errors.length) {
+            return rejectWithValue(errors);
+        }
 
-    try {
-      const response = await extra.api.put<Profile>('/profile/' + id, formData);
-      if (!response.data) throw new Error();
-      return response.data;
-    } catch (error) {
-      console.error('updateProfileData request error', error);
-      return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
-    }
-  }
+        try {
+            const response = await extra.api.put<Profile>(
+                '/profile/' + id,
+                formData,
+            );
+            if (!response.data) throw new Error();
+            return response.data;
+        } catch (error) {
+            console.error('updateProfileData request error', error);
+            return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+        }
+    },
 );

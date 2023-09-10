@@ -5,17 +5,17 @@ import { memo } from 'react';
 import { Page } from '@/widgets/Page';
 
 interface NotFoundPageProps {
-  className?: string;
+    className?: string;
 }
 
 export const NotFoundPage = memo(({ className }: NotFoundPageProps) => {
-  const { t } = useTranslation();
-  return (
-    <Page
-      data-testid="NotFoundPage"
-      className={classNames(styles.NotFound, {}, [className])}
-    >
-      {t('Страница не найдена')}
-    </Page>
-  );
+    const { t } = useTranslation();
+    return (
+        <Page
+            data-testid="NotFoundPage"
+            className={classNames(styles.NotFound, {}, [className])}
+        >
+            {t('Страница не найдена')}
+        </Page>
+    );
 });

@@ -13,32 +13,32 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { fetchCommentsByArticleId } from '@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId';
 
 export const ArticleDetailsComments: FunctionComponent<{ id: string }> = ({
-  id,
+    id,
 }) => {
-  const { t } = useTranslation('article');
-  const comments = useSelector(getArticleComments.selectAll);
-  const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
-  const dispatch = useAppDispatch();
+    const { t } = useTranslation('article');
+    const comments = useSelector(getArticleComments.selectAll);
+    const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
+    const dispatch = useAppDispatch();
 
-  useInitialEffect(() => {
-    dispatch(fetchCommentsByArticleId(id));
-  });
+    useInitialEffect(() => {
+        dispatch(fetchCommentsByArticleId(id));
+    });
 
-  const onSendComment = useCallback(
-    (text: string) => {
-      dispatch(addCommentForArticle(text));
-    },
-    [dispatch]
-  );
-  return (
-    <div>
-      <Text
-        size={TextSize.L}
-        className={styles.commentTitle}
-        title={t('Комментарии')}
-      />
-      <AddCommentForm onSendComment={onSendComment} />
-      <CommentList isLoading={isLoading} comments={comments} />
-    </div>
-  );
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
+    return (
+        <div>
+            <Text
+                size={TextSize.L}
+                className={styles.commentTitle}
+                title={t('Комментарии')}
+            />
+            <AddCommentForm onSendComment={onSendComment} />
+            <CommentList isLoading={isLoading} comments={comments} />
+        </div>
+    );
 };

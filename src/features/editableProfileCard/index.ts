@@ -1,5 +1,5 @@
 export { EditableProfileCard } from './ui/EditableProfileCard';
 export type {
-  ProfileSchema,
-  ValidateProfileError,
+    ProfileSchema,
+    ValidateProfileError,
 } from './model/types/editableProfileCardSchema';

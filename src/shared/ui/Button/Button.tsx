@@ -3,56 +3,56 @@ import { ButtonHTMLAttributes, FC, memo } from 'react';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
-  CLEAR = 'clear',
-  CLEAR_INVERTED = 'clearInverted',
-  OUTLINE = 'outline',
-  OUTLINE_RED = 'outline_red',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted',
+    CLEAR = 'clear',
+    CLEAR_INVERTED = 'clearInverted',
+    OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
+    BACKGROUND = 'background',
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum ButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
+    M = 'size_m',
+    L = 'size_l',
+    XL = 'size_xl',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  theme?: ButtonTheme;
-  square?: boolean;
-  size?: ButtonSize;
-  disabled?: boolean;
-  fullWidth?: boolean;
+    className?: string;
+    theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
+    disabled?: boolean;
+    fullWidth?: boolean;
 }
 
 export const Button: FC<ButtonProps> = memo((props) => {
-  const {
-    className,
-    children,
-    theme = ButtonTheme.OUTLINE,
-    square,
-    disabled,
-    size = ButtonSize.M,
-    fullWidth,
-    ...otherProps
-  } = props;
+    const {
+        className,
+        children,
+        theme = ButtonTheme.OUTLINE,
+        square,
+        disabled,
+        size = ButtonSize.M,
+        fullWidth,
+        ...otherProps
+    } = props;
 
-  const mods: Mods = {
-    [cls.square]: square,
-    [cls.disabled]: disabled,
-    [cls.fullWidth]: fullWidth,
-  };
-  const additionalClass = [className, cls[size], cls[theme]];
+    const mods: Mods = {
+        [cls.square]: square,
+        [cls.disabled]: disabled,
+        [cls.fullWidth]: fullWidth,
+    };
+    const additionalClass = [className, cls[size], cls[theme]];
 
-  return (
-    <button
-      {...otherProps}
-      type="button"
-      disabled={disabled}
-      className={classNames(cls.Button, mods, additionalClass)}
-    >
-      {children}
-    </button>
-  );
+    return (
+        <button
+            {...otherProps}
+            type="button"
+            disabled={disabled}
+            className={classNames(cls.Button, mods, additionalClass)}
+        >
+            {children}
+        </button>
+    );
 });

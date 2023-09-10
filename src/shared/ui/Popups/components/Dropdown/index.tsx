@@ -8,64 +8,71 @@ import { mapDirectionClass } from '../../styles/Consts';
 import popupStyles from '../../styles/popup.module.scss';
 
 export interface DropdownItem {
-  disabled?: boolean;
-  content?: ReactNode;
-  onClicK?: () => void;
-  href?: string;
+    disabled?: boolean;
+    content?: ReactNode;
+    onClicK?: () => void;
+    href?: string;
 }
 
 interface DropDownProps {
-  className?: string;
-  items: DropdownItem[];
-  trigger?: ReactNode;
-  direction?: DropDownDirection;
+    className?: string;
+    items: DropdownItem[];
+    trigger?: ReactNode;
+    direction?: DropDownDirection;
 }
 
 export const Dropdown: FunctionComponent<DropDownProps> = ({
-  className,
-  items,
-  trigger,
-  direction = 'bottom left',
+    className,
+    items,
+    trigger,
+    direction = 'bottom left',
 }) => {
-  const menuClasses = [mapDirectionClass[direction]];
+    const menuClasses = [mapDirectionClass[direction]];
 
-  return (
-    <Menu as={'div'} className={classNames(popupStyles.popup, {}, [className])}>
-      <Menu.Button className={popupStyles.trigger}>{trigger}</Menu.Button>
-      <Menu.Items className={classNames(styles.menu, {}, menuClasses)}>
-        {items.map((item, i) => {
-          const content = ({ active }: { active: boolean }) => (
-            <button
-              key={i}
-              onClick={item.onClicK}
-              className={classNames(
-                styles.item,
-                { [popupStyles.active]: active },
-                []
-              )}
-            >
-              {item.content}
-            </button>
-          );
-          if (item.href) {
-            return (
-              <Menu.Item
-                disabled={item.disabled}
-                key={item.href}
-                as={AppLink}
-                to={item.href}
-              >
-                {content}
-              </Menu.Item>
-            );
-          }
-          return (
-            <Menu.Item disabled={item.disabled} key={i} as={Fragment}>
-              {content}
-            </Menu.Item>
-          );
-        })}
-      </Menu.Items>
-    </Menu>
-  );
+    return (
+        <Menu
+            as={'div'}
+            className={classNames(popupStyles.popup, {}, [className])}
+        >
+            <Menu.Button className={popupStyles.trigger}>{trigger}</Menu.Button>
+            <Menu.Items className={classNames(styles.menu, {}, menuClasses)}>
+                {items.map((item, i) => {
+                    const content = ({ active }: { active: boolean }) => (
+                        <button
+                            key={i}
+                            onClick={item.onClicK}
+                            className={classNames(
+                                styles.item,
+                                { [popupStyles.active]: active },
+                                [],
+                            )}
+                        >
+                            {item.content}
+                        </button>
+                    );
+                    if (item.href) {
+                        return (
+                            <Menu.Item
+                                disabled={item.disabled}
+                                key={item.href}
+                                as={AppLink}
+                                to={item.href}
+                            >
+                                {content}
+                            </Menu.Item>
+                        );
+                    }
+                    return (
+                        <Menu.Item
+                            disabled={item.disabled}
+                            key={i}
+                            as={Fragment}
+                        >
+                            {content}
+                        </Menu.Item>
+                    );
+                })}
+            </Menu.Items>
+        </Menu>
+    );
 };

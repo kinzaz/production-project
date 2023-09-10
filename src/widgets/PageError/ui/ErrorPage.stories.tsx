@@ -5,15 +5,15 @@ import { Theme } from '@/shared/consts/theme';
 import { PageError } from './PageError';
 
 export default {
-  title: 'widget/ErrorPage',
-  component: PageError,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'widget/ErrorPage',
+    component: PageError,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof PageError>;
 
 const Template: ComponentStory<typeof PageError> = (args) => (
-  <PageError {...args} />
+    <PageError {...args} />
 );
 
 export const Light = Template.bind({});

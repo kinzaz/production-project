@@ -14,51 +14,54 @@ import { AvatarDropdown } from '@/features/avatarDropdown';
 import { getRouteArticlesNew } from '@/shared/consts/router';
 
 interface NavbarProps {
-  className?: string;
+    className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const authData = useSelector(getUserAuthData);
-  const onCloseModal = useCallback(() => {
-    setIsOpen(false);
-  }, []);
+    const [isOpen, setIsOpen] = useState(false);
+    const authData = useSelector(getUserAuthData);
+    const onCloseModal = useCallback(() => {
+        setIsOpen(false);
+    }, []);
 
-  const onShowModal = useCallback(() => {
-    setIsOpen(true);
-  }, []);
+    const onShowModal = useCallback(() => {
+        setIsOpen(true);
+    }, []);
 
-  const { t } = useTranslation();
+    const { t } = useTranslation();
 
-  if (authData) {
+    if (authData) {
+        return (
+            <header className={classNames(styles.navbar, {}, [className])}>
+                <Text
+                    theme={TextTheme.INVERTED}
+                    className={styles.appName}
+                    title="Logo"
+                />
+                <AppLink
+                    theme={AppLinkTheme.SECONDARY}
+                    to={getRouteArticlesNew()}
+                >
+                    {t('Создать статью')}
+                </AppLink>
+                <HStack gap="16" className={styles.actions}>
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
+            </header>
+        );
+    }
+
     return (
-      <header className={classNames(styles.navbar, {}, [className])}>
-        <Text
-          theme={TextTheme.INVERTED}
-          className={styles.appName}
-          title="Logo"
-        />
-        <AppLink theme={AppLinkTheme.SECONDARY} to={getRouteArticlesNew()}>
-          {t('Создать статью')}
-        </AppLink>
-        <HStack gap="16" className={styles.actions}>
-          <NotificationButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+        <div className={classNames(styles.navbar, {}, [className])}>
+            <Button
+                onClick={onShowModal}
+                theme={ButtonTheme.CLEAR_INVERTED}
+                className={styles.links}
+            >
+                {t('Войти')}
+            </Button>
+            {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
+        </div>
     );
-  }
-
-  return (
-    <div className={classNames(styles.navbar, {}, [className])}>
-      <Button
-        onClick={onShowModal}
-        theme={ButtonTheme.CLEAR_INVERTED}
-        className={styles.links}
-      >
-        {t('Войти')}
-      </Button>
-      {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
-    </div>
-  );
 });

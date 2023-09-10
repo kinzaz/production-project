@@ -1,11 +1,11 @@
 {
-  "id": "1",
-  "username": "vlad",
-  "lastname": "Vlasenko",
-  "first": "Vlad",
-  "age": "25",
-  "avatar": "https://sun9-24.userapi.com/impf/c638124/v638124331/19985/whWFLRGBfew.jpg?size=320x213&quality=96&sign=f3e3461decc86ce12bfdfee3b7818147&c_uniq_tag=Z-F1txANKlGWsvRS-2klu0jpYjBIrh5TQ478MQ7rFYs&type=album",
-  "city": "Gukovo",
-  "currency": "Евро",
-  "country": "Россия"
+    "id": "1",
+    "username": "vlad",
+    "lastname": "Vlasenko",
+    "first": "Vlad",
+    "age": "25",
+    "avatar": "https://sun9-24.userapi.com/impf/c638124/v638124331/19985/whWFLRGBfew.jpg?size=320x213&quality=96&sign=f3e3461decc86ce12bfdfee3b7818147&c_uniq_tag=Z-F1txANKlGWsvRS-2klu0jpYjBIrh5TQ478MQ7rFYs&type=album",
+    "city": "Gukovo",
+    "currency": "Евро",
+    "country": "Россия"
 }

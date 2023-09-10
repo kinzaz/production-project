@@ -26,8 +26,8 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Тесты
 
-- Unit тесты - `npm run test:unit`
-- e2e тесты - `npm run test:e2e`
+-   Unit тесты - `npm run test:unit`
+-   e2e тесты - `npm run test:e2e`
 
 Подробнее о тестах - [Документация тестирования](/docs/tests.md)
 
@@ -43,6 +43,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 ---
 
 ### Работа с данными
+
 Взаимодействие с данными осуществляется с помощью redux toolkit. По возможности переиспользуемые сущности необходимо нормализовать с помощью Entity/Adapter.
 
 Запросы на сервер осуществляются с помощью RTK query

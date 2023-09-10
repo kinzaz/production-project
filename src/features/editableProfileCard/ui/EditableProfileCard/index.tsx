@@ -19,120 +19,122 @@ import { profileActions } from '@/features/editableProfileCard/model/slice/Profi
 import { ProfilePageHeader } from '../EditableProfileHeader';
 
 interface EditableProfileCardProps {
-  className?: string;
-  id: string;
+    className?: string;
+    id: string;
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-  const { className, id } = props;
-  const dispatch = useAppDispatch();
-  const form = useSelector(getProfileForm);
-  const error = useSelector(getProfileError);
-  const isLoading = useSelector(getProfileIsLoading);
-  const readonly = useSelector(getProfileReadonly);
-  const { t } = useTranslation('profile');
+    const { className, id } = props;
+    const dispatch = useAppDispatch();
+    const form = useSelector(getProfileForm);
+    const error = useSelector(getProfileError);
+    const isLoading = useSelector(getProfileIsLoading);
+    const readonly = useSelector(getProfileReadonly);
+    const { t } = useTranslation('profile');
 
-  const validateErrors = useSelector(getProfileValidateErrors);
-  const validateErrorTranslates = {
-    [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
-    [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
-    [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
-    [ValidateProfileError.INCORRECT_NO_DATA]: t('Отсутствуют данные'),
-    [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректные данные юзера'),
-  };
+    const validateErrors = useSelector(getProfileValidateErrors);
+    const validateErrorTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
+        [ValidateProfileError.INCORRECT_NO_DATA]: t('Отсутствуют данные'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t(
+            'Некорректные данные юзера',
+        ),
+    };
 
-  useInitialEffect(() => {
-    if (id) {
-      dispatch(fetchProfileData(id));
-    }
-  });
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
+    });
 
-  const onChangeFirstname = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ first: value }));
-    },
-    [dispatch]
-  );
+    const onChangeFirstname = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ first: value }));
+        },
+        [dispatch],
+    );
 
-  const onChangeLastname = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ lastname: value }));
-    },
-    [dispatch]
-  );
+    const onChangeLastname = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ lastname: value }));
+        },
+        [dispatch],
+    );
 
-  const onChangeAge = useCallback(
-    (value?: string) => {
-      dispatch(
-        profileActions.updateProfile({
-          age: value?.replace(/[\D]/gi, ''),
-        })
-      );
-    },
-    [dispatch]
-  );
+    const onChangeAge = useCallback(
+        (value?: string) => {
+            dispatch(
+                profileActions.updateProfile({
+                    age: value?.replace(/[\D]/gi, ''),
+                }),
+            );
+        },
+        [dispatch],
+    );
 
-  const onChangeCity = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ city: value }));
-    },
-    [dispatch]
-  );
+    const onChangeCity = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ city: value }));
+        },
+        [dispatch],
+    );
 
-  const onChangeUsername = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ username: value }));
-    },
-    [dispatch]
-  );
+    const onChangeUsername = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ username: value }));
+        },
+        [dispatch],
+    );
 
-  const onChangeAvatar = useCallback(
-    (value?: string) => {
-      dispatch(profileActions.updateProfile({ avatar: value }));
-    },
-    [dispatch]
-  );
+    const onChangeAvatar = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ avatar: value }));
+        },
+        [dispatch],
+    );
 
-  const onChangeCurrency = useCallback(
-    (value?: Currency) => {
-      dispatch(profileActions.updateProfile({ currency: value }));
-    },
-    [dispatch]
-  );
+    const onChangeCurrency = useCallback(
+        (value?: Currency) => {
+            dispatch(profileActions.updateProfile({ currency: value }));
+        },
+        [dispatch],
+    );
 
-  const onChangeCountry = useCallback(
-    (value?: Country) => {
-      dispatch(profileActions.updateProfile({ country: value }));
-    },
-    [dispatch]
-  );
+    const onChangeCountry = useCallback(
+        (value?: Country) => {
+            dispatch(profileActions.updateProfile({ country: value }));
+        },
+        [dispatch],
+    );
 
-  return (
-    <div className={classNames('', {}, [className])}>
-      <ProfilePageHeader />
-      {validateErrors?.length &&
-        validateErrors.map((err, index: number) => (
-          <Text
-            theme={TextTheme.ERROR}
-            title={validateErrorTranslates[err]}
-            key={index}
-            data-testid={'EditableProfileCard.Error'}
-          />
-        ))}
-      <ProfileCard
-        data={form}
-        isLoading={isLoading}
-        error={error}
-        readonly={readonly}
-        onChangeFirstname={onChangeFirstname}
-        onChangeLastname={onChangeLastname}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeAvatar={onChangeAvatar}
-        onChangeUsername={onChangeUsername}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-      />
-    </div>
-  );
+    return (
+        <div className={classNames('', {}, [className])}>
+            <ProfilePageHeader />
+            {validateErrors?.length &&
+                validateErrors.map((err, index: number) => (
+                    <Text
+                        theme={TextTheme.ERROR}
+                        title={validateErrorTranslates[err]}
+                        key={index}
+                        data-testid={'EditableProfileCard.Error'}
+                    />
+                ))}
+            <ProfileCard
+                data={form}
+                isLoading={isLoading}
+                error={error}
+                readonly={readonly}
+                onChangeFirstname={onChangeFirstname}
+                onChangeLastname={onChangeLastname}
+                onChangeAge={onChangeAge}
+                onChangeCity={onChangeCity}
+                onChangeAvatar={onChangeAvatar}
+                onChangeUsername={onChangeUsername}
+                onChangeCurrency={onChangeCurrency}
+                onChangeCountry={onChangeCountry}
+            />
+        </div>
+    );
 });

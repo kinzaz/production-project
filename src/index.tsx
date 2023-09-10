@@ -9,19 +9,19 @@ import '@/app/styles/index.scss';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 
 const root = ReactDom.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement,
 );
 
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <StoreProvider>
-        <ErrorBoundary>
-          <ThemeProvider>
-            <App />
-          </ThemeProvider>
-        </ErrorBoundary>
-      </StoreProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <StoreProvider>
+                <ErrorBoundary>
+                    <ThemeProvider>
+                        <App />
+                    </ThemeProvider>
+                </ErrorBoundary>
+            </StoreProvider>
+        </BrowserRouter>
+    </React.StrictMode>,
 );

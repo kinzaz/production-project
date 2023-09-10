@@ -1,8 +1,8 @@
 import {
-  AnyAction,
-  CombinedState,
-  Reducer,
-  ReducersMapObject,
+    AnyAction,
+    CombinedState,
+    Reducer,
+    ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AxiosInstance } from 'axios';
@@ -18,42 +18,45 @@ import { rtkApi } from '@/shared/api/rtkApi';
 import { ScrollPlaceSchema } from '@/widgets/ScrollPlace';
 
 export interface StateSchema {
-  counter: CounterSchema;
-  user: UserSchema;
-  scrollPlace: ScrollPlaceSchema;
-  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
+    counter: CounterSchema;
+    user: UserSchema;
+    scrollPlace: ScrollPlaceSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
-  // Async reducers
-  loginForm?: LoginSchema;
-  profile?: ProfileSchema;
-  articleDetails?: ArticleDetailsSchema;
-  addCommentForm?: AddCommentFormSchema;
-  articlesPage?: ArticlesPageSchema;
-  articleDetailsPage?: ArticleDetailsPageSchema;
+    // Async reducers
+    loginForm?: LoginSchema;
+    profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema;
+    addCommentForm?: AddCommentFormSchema;
+    articlesPage?: ArticlesPageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
 export interface ReducerManager {
-  getReducerMap: () => ReducersMapObject<StateSchema>;
-  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
-  add: (key: StateSchemaKey, reducer: Reducer) => void;
-  remove: (key: StateSchemaKey) => void;
-  getMountedReducers(): MountedReducers;
+    getReducerMap: () => ReducersMapObject<StateSchema>;
+    reduce: (
+        state: StateSchema,
+        action: AnyAction,
+    ) => CombinedState<StateSchema>;
+    add: (key: StateSchemaKey, reducer: Reducer) => void;
+    remove: (key: StateSchemaKey) => void;
+    getMountedReducers(): MountedReducers;
 }
 
 export type StateSchemaKey = keyof StateSchema;
 
 export interface ReduxStoreWithManager extends ToolkitStore<StateSchema> {
-  reducerManager: ReducerManager;
+    reducerManager: ReducerManager;
 }
 
 export interface ThunkExtraArgs {
-  api: AxiosInstance;
+    api: AxiosInstance;
 }
 
 export interface ThunkConfig<T> {
-  rejectValue: T;
-  extra: ThunkExtraArgs;
-  state: StateSchema;
+    rejectValue: T;
+    extra: ThunkExtraArgs;
+    state: StateSchema;
 }

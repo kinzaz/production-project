@@ -7,37 +7,37 @@ import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 
 export const initArticlesPage = createAsyncThunk<
-  void,
-  URLSearchParams,
-  ThunkConfig<string>
+    void,
+    URLSearchParams,
+    ThunkConfig<string>
 >('articlesPage/initArticlesPage', async (searchParams, thunkApi) => {
-  const { dispatch, getState } = thunkApi;
-  const inited = getArticlesInited(getState());
+    const { dispatch, getState } = thunkApi;
+    const inited = getArticlesInited(getState());
 
-  if (!inited) {
-    const orderFromUrl = searchParams.get('order') as SortOrder;
-    const sortFromUrl = searchParams.get('sort') as ArticleSortField;
-    const searchFromUrl = searchParams.get('search');
-    const typeFromUrl = searchParams.get('type') as ArticleType;
+    if (!inited) {
+        const orderFromUrl = searchParams.get('order') as SortOrder;
+        const sortFromUrl = searchParams.get('sort') as ArticleSortField;
+        const searchFromUrl = searchParams.get('search');
+        const typeFromUrl = searchParams.get('type') as ArticleType;
 
-    if (orderFromUrl) {
-      dispatch(articlePageSliceAction.setOrder(orderFromUrl));
-    }
-    if (sortFromUrl) {
-      dispatch(articlePageSliceAction.setSort(sortFromUrl));
-    }
-    if (searchFromUrl) {
-      dispatch(articlePageSliceAction.setSearch(searchFromUrl));
-    }
-    if (typeFromUrl) {
-      dispatch(articlePageSliceAction.setType(typeFromUrl));
-    }
+        if (orderFromUrl) {
+            dispatch(articlePageSliceAction.setOrder(orderFromUrl));
+        }
+        if (sortFromUrl) {
+            dispatch(articlePageSliceAction.setSort(sortFromUrl));
+        }
+        if (searchFromUrl) {
+            dispatch(articlePageSliceAction.setSearch(searchFromUrl));
+        }
+        if (typeFromUrl) {
+            dispatch(articlePageSliceAction.setType(typeFromUrl));
+        }
 
-    dispatch(articlePageSliceAction.initState());
-    dispatch(
-      fetchArticlesList({
-        page: 1,
-      })
-    );
-  }
+        dispatch(articlePageSliceAction.initState());
+        dispatch(
+            fetchArticlesList({
+                page: 1,
+            }),
+        );
+    }
 });

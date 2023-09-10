@@ -8,30 +8,30 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 
 interface SidebarItemProps {
-  item: SidebarItemType;
-  collapsed: boolean;
+    item: SidebarItemType;
+    collapsed: boolean;
 }
 
 export const SidebarItem: FunctionComponent<SidebarItemProps> = memo(
-  ({ collapsed, item }) => {
-    const { t } = useTranslation();
-    const isAuth = useSelector(getUserAuthData);
+    ({ collapsed, item }) => {
+        const { t } = useTranslation();
+        const isAuth = useSelector(getUserAuthData);
 
-    if (item.authOnly && !isAuth) return null;
+        if (item.authOnly && !isAuth) return null;
 
-    return (
-      <AppLink
-        theme={AppLinkTheme.SECONDARY}
-        to={item.path}
-        className={classNames(
-          styles.item,
-          { [styles.collapsed]: collapsed },
-          []
-        )}
-      >
-        <item.Icon className={styles.icon} />
-        <span className={styles.link}>{t(item.text)}</span>
-      </AppLink>
-    );
-  }
+        return (
+            <AppLink
+                theme={AppLinkTheme.SECONDARY}
+                to={item.path}
+                className={classNames(
+                    styles.item,
+                    { [styles.collapsed]: collapsed },
+                    [],
+                )}
+            >
+                <item.Icon className={styles.icon} />
+                <span className={styles.link}>{t(item.text)}</span>
+            </AppLink>
+        );
+    },
 );

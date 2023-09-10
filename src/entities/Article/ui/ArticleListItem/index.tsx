@@ -1,8 +1,8 @@
 import {
-  Article,
-  ArticleBlockType,
-  ArticleTextBlock as ArticleTextBlockType,
-  ArticleView,
+    Article,
+    ArticleBlockType,
+    ArticleTextBlock as ArticleTextBlockType,
+    ArticleView,
 } from '@/entities/Article/model/types/article';
 import { FunctionComponent, HTMLAttributeAnchorTarget } from 'react';
 import styles from './index.module.scss';
@@ -21,97 +21,109 @@ import { AppImage } from '@/shared/ui/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
-  article: Article;
-  view: ArticleView;
-  className?: string;
-  target?: HTMLAttributeAnchorTarget;
+    article: Article;
+    view: ArticleView;
+    className?: string;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FunctionComponent<ArticleListItemProps> = ({
-  article,
-  view,
-  className,
-  target,
+    article,
+    view,
+    className,
+    target,
 }) => {
-  const { t } = useTranslation('article');
+    const { t } = useTranslation('article');
 
-  const types = (
-    <Text text={article.type.join(', ')} className={styles.types} />
-  );
-  const views = (
-    <>
-      <Text text={String(article.views)} className={styles.views} />{' '}
-      <Icon Svg={EyeIcon} />
-    </>
-  );
+    const types = (
+        <Text text={article.type.join(', ')} className={styles.types} />
+    );
+    const views = (
+        <>
+            <Text text={String(article.views)} className={styles.views} />{' '}
+            <Icon Svg={EyeIcon} />
+        </>
+    );
 
-  if (view === ArticleView.BIG) {
-    const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT
-    ) as ArticleTextBlockType;
+    if (view === ArticleView.BIG) {
+        const textBlock = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlockType;
+
+        return (
+            <div
+                data-testid="ArticleListItem"
+                className={classNames(styles.ArticleListItem, {}, [
+                    className,
+                    styles[view],
+                ])}
+            >
+                <Card>
+                    <div className={styles.header}>
+                        <Avatar size={30} src={article.user.avatar} />
+                        <Text
+                            text={article.user.username}
+                            className={styles.username}
+                        />
+                        <Text
+                            text={article.createdAt}
+                            className={styles.date}
+                        />
+                    </div>
+                    <Text text={article.title} className={styles.title} />
+                    {types}
+                    <AppImage
+                        fallback={<Skeleton width={'100%'} height={250} />}
+                        src={article.img}
+                        className={styles.img}
+                        alt={article.title}
+                    />
+                    {textBlock && (
+                        <ArticleTextBlock
+                            block={textBlock}
+                            className={styles.textBlock}
+                        />
+                    )}
+                    <div className={styles.footer}>
+                        <AppLink
+                            to={getRouteArticle(article.id)}
+                            target={target}
+                        >
+                            <Button>{t('Читать далее')}</Button>
+                        </AppLink>
+                        {views}
+                    </div>
+                </Card>
+            </div>
+        );
+    }
 
     return (
-      <div
-        data-testid="ArticleListItem"
-        className={classNames(styles.ArticleListItem, {}, [
-          className,
-          styles[view],
-        ])}
-      >
-        <Card>
-          <div className={styles.header}>
-            <Avatar size={30} src={article.user.avatar} />
-            <Text text={article.user.username} className={styles.username} />
-            <Text text={article.createdAt} className={styles.date} />
-          </div>
-          <Text text={article.title} className={styles.title} />
-          {types}
-          <AppImage
-            fallback={<Skeleton width={'100%'} height={250} />}
-            src={article.img}
-            className={styles.img}
-            alt={article.title}
-          />
-          {textBlock && (
-            <ArticleTextBlock block={textBlock} className={styles.textBlock} />
-          )}
-          <div className={styles.footer}>
-            <AppLink to={getRouteArticle(article.id)} target={target}>
-              <Button>{t('Читать далее')}</Button>
-            </AppLink>
-            {views}
-          </div>
-        </Card>
-      </div>
+        <AppLink
+            data-testid="ArticleListItem"
+            target={target}
+            to={getRouteArticle(article.id)}
+            className={classNames(styles.ArticleListItem, {}, [
+                className,
+                styles[view],
+            ])}
+        >
+            <Card>
+                <div className={styles.imageWrapper}>
+                    <AppImage
+                        fallback={<Skeleton width={200} height={200} />}
+                        src={article.img}
+                        alt={article.title}
+                        className={styles.img}
+                    />
+                    <Text text={article.createdAt} className={styles.date} />
+                </div>
+                <div className={styles.infoWrapper}>
+                    {types}
+                    {views}
+                </div>
+                <Text text={article.title} className={styles.title} />
+            </Card>
+        </AppLink>
     );
-  }
-
-  return (
-    <AppLink
-      data-testid="ArticleListItem"
-      target={target}
-      to={getRouteArticle(article.id)}
-      className={classNames(styles.ArticleListItem, {}, [
-        className,
-        styles[view],
-      ])}
-    >
-      <Card>
-        <div className={styles.imageWrapper}>
-          <AppImage
-            fallback={<Skeleton width={200} height={200} />}
-            src={article.img}
-            alt={article.title}
-            className={styles.img}
-          />
-          <Text text={article.createdAt} className={styles.date} />
-        </div>
-        <div className={styles.infoWrapper}>
-          {types}
-          {views}
-        </div>
-        <Text text={article.title} className={styles.title} />
-      </Card>
-    </AppLink>
-  );
 };

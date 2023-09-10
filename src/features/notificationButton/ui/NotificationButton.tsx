@@ -9,27 +9,27 @@ import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 export const NotificationButton: FunctionComponent = () => {
-  const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-  const trigger = (
-    <Button onClick={() => setIsOpen(true)} theme={ButtonTheme.CLEAR}>
-      <Icon inverted Svg={NotificationIcon} />
-    </Button>
-  );
+    const trigger = (
+        <Button onClick={() => setIsOpen(true)} theme={ButtonTheme.CLEAR}>
+            <Icon inverted Svg={NotificationIcon} />
+        </Button>
+    );
 
-  return (
-    <div>
-      <BrowserView>
-        <Popover direction="bottom left" trigger={trigger}>
-          <NotificationList className={styles.notifications} />
-        </Popover>
-      </BrowserView>
-      <MobileView>
-        {trigger}
-        <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
-          <NotificationList />
-        </Drawer>
-      </MobileView>
-    </div>
-  );
+    return (
+        <div>
+            <BrowserView>
+                <Popover direction="bottom left" trigger={trigger}>
+                    <NotificationList className={styles.notifications} />
+                </Popover>
+            </BrowserView>
+            <MobileView>
+                {trigger}
+                <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                    <NotificationList />
+                </Drawer>
+            </MobileView>
+        </div>
+    );
 };

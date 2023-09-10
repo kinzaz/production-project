@@ -1,35 +1,35 @@
 .Flex {
-  display: flex;
+    display: flex;
 }
 
 $justifies: 'center', 'space-between', 'end', 'start';
 
 @each $justify in $justifies {
-  .flex--justify-#{$justify} {
-    justify-content: #{$justify};
-  }
+    .flex--justify-#{$justify} {
+        justify-content: #{$justify};
+    }
 }
 
 $aligns: 'center', 'space-between', 'end', 'start';
 
 @each $align in $aligns {
-  .flex--align-#{$align} {
-    align-items: #{$align};
-  }
+    .flex--align-#{$align} {
+        align-items: #{$align};
+    }
 }
 
 $gaps: 4, 8, 16, 32;
 
 @each $gap in $gaps {
-  .flex--gap-#{$gap} {
-    gap: #{$gap}px;
-  }
+    .flex--gap-#{$gap} {
+        gap: #{$gap}px;
+    }
 }
 
 $directions: 'row', 'column';
 
 @each $direction in $directions {
-  .flex--direction-#{$direction} {
-    flex-direction: #{$direction};
-  }
+    .flex--direction-#{$direction} {
+        flex-direction: #{$direction};
+    }
 }

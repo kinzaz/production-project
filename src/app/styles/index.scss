@@ -5,37 +5,37 @@
 @import 'themes/orange';
 
 body {
-  font: var(--font-m);
-  color: var(--primary-color);
+    font: var(--font-m);
+    color: var(--primary-color);
 }
 
 .app,
 .app_modal,
 .app_drawer {
-  font: var(--font-m);
-  color: var(--primary-color);
+    font: var(--font-m);
+    color: var(--primary-color);
 }
 
 .app {
-  background: var(--bg-color);
-  min-height: 100vh;
+    background: var(--bg-color);
+    min-height: 100vh;
 }
 
 .content-page {
-  display: flex;
+    display: flex;
 }
 
 *::-webkit-scrollbar {
-  width: 12px;
-  height: 10px;
+    width: 12px;
+    height: 10px;
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--card-bg);
+    background: var(--card-bg);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--invert-primary-color);
-  border-radius: 20px;
-  border: 2px solid var(--primary-color);
+    background-color: var(--invert-primary-color);
+    border-radius: 20px;
+    border: 2px solid var(--primary-color);
 }

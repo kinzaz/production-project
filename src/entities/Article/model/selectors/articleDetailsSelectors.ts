@@ -1,10 +1,10 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 export const getArticleDetailsData = (store: StateSchema) =>
-  store.articleDetails?.data;
+    store.articleDetails?.data;
 
 export const getArticleDetailsIsLoading = (store: StateSchema) =>
-  store.articleDetails?.isLoading;
-  
+    store.articleDetails?.isLoading;
+
 export const getArticleDetailsError = (store: StateSchema) =>
-  store.articleDetails?.error;
+    store.articleDetails?.error;
