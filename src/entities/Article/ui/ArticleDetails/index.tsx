@@ -1,14 +1,13 @@
 import { useAppDispatch } from '@/app/providers/StoreProvider/hooks';
 import {
-    getArticleDetailsData,
-    getArticleDetailsError,
-    getArticleDetailsIsLoading,
+    useArticleDetailsData,
+    useArticleDetailsError,
+    useArticleDetailsIsLoading,
 } from '@/entities/Article/model/selectors/articleDetailsSelectors';
 import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById';
 import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
 import { FunctionComponent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -43,9 +42,9 @@ export const ArticleDetails: FunctionComponent<ArticleDetailsProps> = memo(
     ({ id }) => {
         const { t } = useTranslation('article');
         const dispatch = useAppDispatch();
-        const isLoading = useSelector(getArticleDetailsIsLoading);
-        const error = useSelector(getArticleDetailsError);
-        const article = useSelector(getArticleDetailsData);
+        const isLoading = useArticleDetailsIsLoading();
+        const error = useArticleDetailsError();
+        const article = useArticleDetailsData();
 
         const renderBlock = useCallback((block: ArticleBlock, i: number) => {
             switch (block.type) {

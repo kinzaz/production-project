@@ -1,10 +1,13 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { buildSelector } from '@/shared/lib/store/buildSelector';
 
-export const getArticleDetailsData = (store: StateSchema) =>
-    store.articleDetails?.data;
+export const [useArticleDetailsData, articleDetailsData] = buildSelector(
+    (store: StateSchema) => store.articleDetails?.data,
+);
 
-export const getArticleDetailsIsLoading = (store: StateSchema) =>
-    store.articleDetails?.isLoading;
+export const [useArticleDetailsIsLoading, articleDetailsIsLoading] =
+    buildSelector((store: StateSchema) => store.articleDetails?.isLoading);
 
-export const getArticleDetailsError = (store: StateSchema) =>
-    store.articleDetails?.error;
+export const [useArticleDetailsError, articleDetailsError] = buildSelector(
+    (store: StateSchema) => store.articleDetails?.error,
+);

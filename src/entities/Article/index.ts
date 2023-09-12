@@ -6,4 +6,7 @@ export {
     ArticleType,
 } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export { getArticleDetailsData } from './model/selectors/articleDetailsSelectors';
+export {
+    useArticleDetailsData,
+    articleDetailsData,
+} from './model/selectors/articleDetailsSelectors';
