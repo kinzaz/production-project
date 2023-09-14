@@ -9,6 +9,11 @@
                 "isArticleRatingEnabled": true,
                 "isCounterEnabled": true
             },
+            "jsonSettings": {
+                "theme": "app_dark_theme",
+                "isFirstVisit": true,
+                "settingsPageHasBeenOpen": false
+            },
             "avatar": "https://distribution.faceit-cdn.net/images/d25e4f2a-49e1-4c8c-9c30-9871cc6abbca.jpeg"
         },
         {
@@ -19,6 +24,11 @@
             "features": {
                 "isArticleRatingEnabled": false,
                 "isCounterEnabled": false
+            },
+            "jsonSettings": {
+                "theme": "app_dark_theme",
+                "isFirstVisit": true,
+                "settingsPageHasBeenOpen": false
             },
             "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671765_4-mykaleidoscope-ru-p-zloi-khaker-vkontakte-4.jpg"
         },
@@ -31,6 +41,11 @@
                 "isArticleRatingEnabled": true,
                 "isCounterEnabled": false
             },
+            "jsonSettings": {
+                "theme": "app_dark_theme",
+                "isFirstVisit": true,
+                "settingsPageHasBeenOpen": false
+            },
             "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671765_4-mykaleidoscope-ru-p-zloi-khaker-vkontakte-4.jpg"
         },
         {
@@ -41,6 +56,11 @@
             "features": {
                 "isArticleRatingEnabled": false,
                 "isCounterEnabled": true
+            },
+            "jsonSettings": {
+                "theme": "app_dark_theme",
+                "isFirstVisit": true,
+                "settingsPageHasBeenOpen": false
             },
             "avatar": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663671765_4-mykaleidoscope-ru-p-zloi-khaker-vkontakte-4.jpg"
         }
