@@ -15,6 +15,7 @@ import { VStack } from '@/shared/ui/Stack/VStack';
 import { ArticleRecomendationsList } from '@/features/articleRecomendationsList';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
+import { getFeatureFlag } from '@/shared/lib/feature';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -23,6 +24,7 @@ const reducers: ReducersList = {
 const ArticleDetailsPage: FunctionComponent = () => {
     const { id } = useParams<{ id: string }>();
     const { t } = useTranslation('article');
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
 
     if (!id) {
         return <Page>{t('Статья не найдена!')}</Page>;
@@ -37,7 +39,7 @@ const ArticleDetailsPage: FunctionComponent = () => {
                 <VStack gap="16">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <ArticleRating articleId={id} />
+                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
                     <ArticleRecomendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
