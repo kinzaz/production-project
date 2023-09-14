@@ -15,7 +15,8 @@ import { VStack } from '@/shared/ui/Stack/VStack';
 import { ArticleRecomendationsList } from '@/features/articleRecomendationsList';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatureFlag } from '@/shared/lib/feature';
+import { toggleFeatures } from '@/shared/lib/feature';
+import { Card } from '@/shared/ui/Card';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -24,11 +25,16 @@ const reducers: ReducersList = {
 const ArticleDetailsPage: FunctionComponent = () => {
     const { id } = useParams<{ id: string }>();
     const { t } = useTranslation('article');
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
 
     if (!id) {
         return <Page>{t('Статья не найдена!')}</Page>;
     }
+
+    const articleRating = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating articleId={id} />,
+        off: () => <Card>Оценка статей скоро появится</Card>,
+    });
 
     return (
         <DynamicModuleLoader reducers={reducers}>
@@ -39,7 +45,7 @@ const ArticleDetailsPage: FunctionComponent = () => {
                 <VStack gap="16">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                    {articleRating}
                     <ArticleRecomendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
