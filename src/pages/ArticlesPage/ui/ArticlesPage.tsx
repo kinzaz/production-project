@@ -12,6 +12,7 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articlePageSliceReducer } from '../model/slices/articlePageSlice';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 
 const reducers: ReducersList = {
     articlesPage: articlePageSliceReducer,
@@ -34,6 +35,7 @@ const ArticlesPage: FunctionComponent = () => {
             <Page data-testid="ArticlePage" onScrollEnd={onLoadNextPart}>
                 <ArticlePageFilters />
                 <ArticleInfiniteList />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     );
